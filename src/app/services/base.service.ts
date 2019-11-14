@@ -27,7 +27,7 @@ export class BaseService {
        /* let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Origin','https://developer.riotgames.com');
 */
-       return this.http.get<Account>("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ user+ "?api_key=RGAPI-6f061b8c-bc48-4658-bc61-101ff0916fb7"
+       return this.http.get<Account>("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ user+ "?api_key=RGAPI-c9cfcf35-6de1-4d9c-80c0-cf860d04f1f1"
        
     ); }
 

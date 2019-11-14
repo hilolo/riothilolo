@@ -1,19 +1,130 @@
 	<!-- wrapper -->
-	<div id="wrapper">	
-		<section class="error-404">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="title">
-							<h4><i class="fa fa-bug"></i> PRR</h4>
-						</div>
 
-						<img src="http://ddragon.leagueoflegends.com/cdn/9.22.1/img/profileicon/{{ account.profileIconId }}.png" >
-						<p>  {{ account.name | json}} </p>
+
+
+	<div id="wrapper">	
+		<section class="hero cover" style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);" >
+			<div class="hero-bg"></div>
+			<div class="container relative">
+				<div class="page-header">
+					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.accountId}}</span></div>	
+					<div class="profile-avatar">
+						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="YAKUZI">
+							<a href="#">
+							<img src="http://ddragon.leagueoflegends.com/cdn/9.22.1/img/profileicon/{{account.profileIconId}}.png" >
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section style="background-image: url(https://i.imgur.com/wCQqiYF.png);background-repeat: repeat; background-size: 100% 100%;"   class="profile-nav height-20 border-bottom-1 border-grey-300  hidden-xs" >
+		
+		</section>
+		
+		
+		
+		<section class="bg-grey-50 padding-top-60 padding-top-sm-30" style="padding: px;/* margin-top: 20px; */">
+			<div class="container">
+				<div class="row ">
+					<div class="col-md-4 col-sm-4 hidden-xs padding-top-60 padding-top-sm-30">
+						<div class="widget">
+							<div class="panel panel-default">
+								<div class="panel-heading">About me</div>
+								<div class="panel-body">
+									I am a frontend developer &amp; designer. Love to create awesome designs and unique websites.
+									<ul class="panel-list margin-top-25">
+										<li><i class="fa fa-clock-o"></i> Joined December 2009</li>
+										<li><i class="fa fa-map-marker"></i> United Kingdom</li>
+										<li><i class="fa fa-chain-broken"></i> Gameforest</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 						
+						<div class="widget">
+							<div class="panel panel-default">
+								<div class="panel-heading">Navigation</div>
+								<div class="panel-body no-padding">
+									<ul class="panel-list-bordered">
+										<li><a href="#"><i class="fa fa-gamepad"></i> Games (4)</a></li>
+										<li><a href="#"><i class="fa fa-film"></i> Videos (2)</a></li>
+										<li><a href="#"><i class="fa fa-picture-o"></i> Galleries (3)</a></li>
+										<li><a href="#"><i class="fa fa-calendar-o"></i> Events</a></li>
+										<li><a href="#"><i class="fa fa-users"></i> Groups (1)</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="widget widget-friends">
+							<div class="panel panel-default">
+								<div class="panel-heading">Friends (34)</div>
+								<div class="panel-body">
+									<ul>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Orb"><img src="img/user/avatar2.jpg" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Patrick"><img src="img/user/avatar3.jpg" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="John"><img src="img/user/avatar4.jpg" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Michael"><img src="img/user/avatar5.jpg" alt=""></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+					
+					<div class="col-md-8 col-sm-8">
+						<div class="panel panel-default margin-bottom-40">
+							<div class="panel-body">
+								<div class="form-group">
+									<textarea class="form-control" rows="4" placeholder="What's in your head?..."></textarea>
+								</div>
+								<div class="btn-group pull-left">
+									<a href="#" class="btn btn-link btn-icon-left no-padding-left"><i class="fa fa-image"></i> Image</a>
+									<a href="#" class="btn btn-link btn-icon-left"><i class="fa fa-film"></i> Video</a>
+									<a href="#" class="btn btn-link btn-icon-left"><i class="fa fa-map-marker"></i> Location</a>
+								</div>
+								<button type="submit" class="btn btn-primary btn-icon-left pull-right"><i class="fa fa-edit"></i> Submit</button>
+							</div>
+						</div>
+						
+						<div class="panel panel-default panel-post">
+							<div class="panel-body">
+								<div class="post">
+									<div class="post-header post-author">
+										<a href="#" class="author" data-toggle="tooltip" title="" data-original-title="YAKUZI"><img src="img/user/avatar.jpg" alt=""></a>
+										<div class="post-title">
+											<h3><a href="#">Deadpool Gets the Movie He Deserves</a></h3>
+											<ul class="post-meta">
+												<li><i class="fa fa-calendar-o"></i> April 13, 2016</li>
+												<li><a href="#">#hashtag</a>, <a href="#">#witcher 3</a></li>
+											</ul>
+										</div>
+									</div>
+									Etiam et sollicitudin elit. Sed ultrices aliquet dui, eu aliquet metus sodales sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis porttitor varius pulvinar. Vivamus efficitur vulputate imperdiet.
+								</div>
+							</div>
+							<div class="panel-footer">
+								<ul class="post-action">
+									<li><a href="#"><i class="fa fa-heart"></i> like (5)</a></li>
+									<li><a href="#"><i class="fa fa-comments"></i> Comments</a></li>
+									<li><a href="#"><i class="fa fa-reply"></i> share</a></li>
+								</ul>
+							</div>
+						</div>
+						
+					
+						
+						<h4 class="page-header text-center no-padding"><i class="fa fa-clock-o"></i> February, 2016</h4>
+						
+						
+
 					</div>
 				</div>
 			</div>
 		</section>
 	</div>
-	<!-- /#wrapper -->
+
+
+
