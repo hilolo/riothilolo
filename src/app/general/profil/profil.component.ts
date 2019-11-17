@@ -29,7 +29,7 @@ export class ProfilComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.baseService.Getinfo("SOWAL3DOWA1").subscribe((data: Account)=>{
+    this.baseService.Getinfo("WIZHID").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       console.log("account id " + this.account.id);

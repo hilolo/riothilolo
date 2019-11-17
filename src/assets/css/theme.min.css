@@ -1244,6 +1244,16 @@ height: 115px;
     background: #bfcbd8;
 }
 
+.defeat-bg1{
+background: #cfa9a9;
+}
+
+
+.defeat-bg2{   
+    background: #d8bfbf;
+}
+
+
 
 
 .s-m-t {
@@ -1333,6 +1343,11 @@ height: 115px;
 }
 
 
+
+.defeat-text4 {
+    color: #795555;
+}
+
 .s-m-m .kills {
     font-size: 8px;
     font-weight: 700;
@@ -1343,11 +1358,6 @@ height: 115px;
 
 
 }
-
-.defeat-text4 {
-    color: #795555;
-}
-
 
 
 .match-con2{

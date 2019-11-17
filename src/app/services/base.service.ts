@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import  {Account } from 'src/app/models/accounts';
+import  * as ritoapi from 'src/app/services/api-key';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,9 @@ export class BaseService {
        /* let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Origin','https://developer.riotgames.com');
 */
-       return this.http.get<Account>("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ user+ "?api_key=RGAPI-c1b5c16e-7c2c-455a-a810-018707986e31"
+
+
+       return this.http.get<Account>("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ user+ "?api_key="+ ritoapi.key
        
     ); }
 
