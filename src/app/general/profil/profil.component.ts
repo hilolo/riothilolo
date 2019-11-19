@@ -43,7 +43,7 @@ export class ProfilComponent implements OnInit {
   
         this.leagues = leauguedata;
         
-        
+    //ad
 
        
         this.leagues = this.leagues.filter(item => item.queueType !== "RANKED_TFT" && item.queueType !== "RANKED_FLEX_TT" );
