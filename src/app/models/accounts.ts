@@ -2,8 +2,8 @@
 
 export class Account {
 
-    accountId: number;
-    id: number;
+    accountId: string;
+    id: string;
     name : string;
     profileIconId : number;
     puuid: string;

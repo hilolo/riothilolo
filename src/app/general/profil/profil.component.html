@@ -8,7 +8,11 @@
 			<div class="hero-bg"></div>
 			<div class="container relative">
 				<div class="page-header">
-					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>	
+						
+					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>
+					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  mamak.com</a>
+					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > VIP</a>
+
 					<div class="profile-avatar">
 						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="YAKUZI">
 							<a href="#">
@@ -29,69 +33,37 @@
 			<div class="container">
 				<div class="row ">
 					<div class="col-md-4 col-sm-4 hidden-xs padding-top-40 padding-top-sm-30">
-						<div class="widget">
+						
+						<div class="widget" *ngFor="let league of leagues" >
 							<div class="panel panel-default">
 								
 								<div class="panel-body">
 									<div class="row tblt row-eq-height">
 									<div class="col-md-5 col-sm-4  ">
-											<img src="https://opgg-static.akamaized.net/images/medals/diamond_2.png" class="Image   margin-top-25s">
+											<img src="/assets/img/division/{{league.tier }}.png" width="105px" class="Image   margin-top-25s">
 										</div>
 											<div class="col-md-7 col-sm-8   Tierinfo   ">
 											<div class="center-vv">
-												<h6  class="Tiermode" >Classé Solo
-												</h6>
-												<div class="post-title TierRank">Diamond 2</div>
-
-												<div class="TierInfo">
-			<span class="LeaguePoints">
-				0 LP
-			</span>
-							/
-						<span class="WinLose">
-															<span class="wins">85V </span>
-						<span class="losses">83D</span>
-						<br>
-						<span class="winratio">Win Ratio 51%</span>
-												</span>
-		</div>
-
-
-</div>
-										</div>
-
-										</div>
-
-									
-								
-								</div>
-							</div>
-						</div>
-						<div class="widget">
-							<div class="panel panel-default">
-								
-								<div class="panel-body">
-									<div class="row tblt row-eq-height">
-									<div class="col-md-5 col-sm-4  ">
-											<img src="https://opgg-static.akamaized.net/images/medals/diamond_2.png" class="Image   margin-top-25s">
-										</div>
-											<div class="col-md-7 col-sm-8   Tierinfo   ">
-											<div class="center-vv">
-												<h6  class="Tiermode" >  Classé Solo
+											
+							<h6  class="Tiermode"  >   {{league.queueType == 'RANKED_SOLO_5x5' ? '	
+									Classé Solo' : 'Flex 5:5 Rank' }}
   												</h6>
-												<div class="post-title TierRank">Diamond 2</div>
-
+												<div class="post-title TierRank"> {{league.tier }}  {{league.rank }}</div>
+												
 												<div class="TierInfo">
 			<span class="LeaguePoints">
-				0 LP
+					{{league.leaguePoints }}  LP
 			</span>
 							/
 						<span class="WinLose">
-															<span class="wins">85V </span>
-						<span class="losses">83D</span>
+															<span class="wins">{{league.wins}}V </span>
+						<span class="losses">{{league.losses}}D</span>
 						<br>
-						<span class="winratio">Win Ratio 51%</span>
+						
+						<span class=" {{(league.wins /(league.wins+league.losses)) > 0.5 ? '	
+						winratio' : 'text-danger'}} " >Win Ratio {{(league.wins /(league.wins+league.losses))*100| number: '1.0-0' }}%</span>
 												</span>
+								
 		</div>
 
 
@@ -114,10 +86,10 @@
 								<div class="panel-heading">Friends (34)</div>
 								<div class="panel-body">
 									<ul>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Orb"><img src="img/user/avatar2.jpg" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Patrick"><img src="img/user/avatar3.jpg" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="John"><img src="img/user/avatar4.jpg" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Michael"><img src="img/user/avatar5.jpg" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Orb"><img src="" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Patrick"><img src="" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="John"><img src="" alt=""></a></li>
+										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Michael"><img src="" alt=""></a></li>
 									</ul>
 								</div>
 							</div>
