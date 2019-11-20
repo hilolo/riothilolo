@@ -26,7 +26,7 @@ export class ProfilComponent implements OnInit {
   
    account = <Account>{};
    leagues = <League[]>{};
-   idacccount :string;
+   accountid :string;
   constructor(private  baseService:BaseService, private  leagueService:LeagueService) {
     LeagueService
 
@@ -35,10 +35,10 @@ export class ProfilComponent implements OnInit {
   ngOnInit() {
 
 
-    this.baseService.Getinfo("TOPLANELOOOOOL").subscribe((data: Account)=>{
+    this.baseService.Getinfo("WIZHID").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
-      this.idacccount=data.id;
+      this.accountid=data.accountId;
       this.leagueService.Getleaugue( data.id).subscribe((leauguedata: League[])=>{
   
         this.leagues = leauguedata;
@@ -49,7 +49,9 @@ export class ProfilComponent implements OnInit {
         this.leagues = this.leagues.filter(item => item.queueType !== "RANKED_TFT" && item.queueType !== "RANKED_FLEX_TT" );
 
         this.leagues = this.leagues.sort((b,a) => a.queueType.localeCompare(b.queueType))
-        console.log("leaugue id " + JSON.stringify(this.leagues) );
+        console.log("account id " + JSON.stringify(this.accountid) );
+        
+
         
           
 

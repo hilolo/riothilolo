@@ -1,5 +1,5 @@
 'use strict';
 
-export const key='RGAPI-30f6e788-4a98-4928-ac90-70ff28795f9a';
+export const key='RGAPI-bb5e3c9b-f64a-4690-9e0b-23f95b93a588';
 
 
