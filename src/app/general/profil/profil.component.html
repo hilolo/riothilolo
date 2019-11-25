@@ -27,9 +27,15 @@
 		<section style="background-image: url(https://i.imgur.com/wCQqiYF.png);background-repeat: repeat; background-size: 100% 100%;"   class="profile-nav height-20 border-bottom-1 border-grey-300  hidden-xs" >
 		
 		</section>
+		 
+
+		<div *ngFor="let aq of Matchlists.matches" >
+			<pre>{{aq.platformId | json}}</pre>
+
+		</div>
 		
-		<pre>{{Matchlists.matches | json}}</pre>
-		<pre>{{timeLeft}}</pre>
+
+		
 		
 		<section class="bg-grey-50 padding-top-40 padding-top-sm-30" style="padding: px;/* margin-top: 20px; */">
 			<div class="container">
@@ -106,14 +112,14 @@
 						
 							<div class="matches">
 							
-									<div class="match1" *ngFor="let Matchlist of Matchlistdata" style="margin-top: 40px;" >
+									<div class="match1" *ngFor="let Matchlist of Matchlists.matches" style="margin-top: 40px;" >
 										
 												
 	
 												<div class="s-m-t victory-bg1 cf ">
 												<span class="victory-text1">Ranked 5v5</span>
 												<span class="sep victory-text2"> - </span>
-												<span class="victory-text1 ">1 day ago</span>
+												<span class="victory-text1 ">{{Matchlist.timestamp | date }}</span>
 												<span class="sep victory-text2"> - </span>
 												<span class="time victory-text3"> 21mins</span>
 												<div class="result victory-text1">VICTORY</div>
@@ -145,9 +151,10 @@
 	
 														</div>
 													<div class="match-con3">
+														
 	
 	<span class="pos victory-text1">
-	Top	| Duo	</span>
+	 {{Matchlist.lane | titlecase  }}		</span>
 	<span class="lvl victory-text2">Lv 12 / 8,181G</span>
 	<span class="cs victory-text2"><span >157 CS</span> / <span class="kp">KP23%</span></span>
 	<span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span>

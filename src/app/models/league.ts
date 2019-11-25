@@ -10,7 +10,7 @@ export class League {
     tier: string;
     summonerId: string;
     leaguePoints: number;
-    kda: number;
+   
    
 
 }

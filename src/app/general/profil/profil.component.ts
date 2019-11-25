@@ -67,15 +67,7 @@ export class ProfilComponent implements OnInit {
           this.Matchlists=Matchlistdata;
 
 
-        
-            this.interval = setInterval(() => {
-              if(this.timeLeft > 0) {
-                this.timeLeft--;
-                this.Matchlists.matches=this.Matchlists.matches.concat(Matchlistdata.matches);
-              } else {
-                this.timeLeft = 60;
-              }
-            },2500);
+        //this.Matchlists.matches=this.Matchlists.matches.concat(Matchlistdata.matches);
           
       
       
@@ -95,6 +87,9 @@ export class ProfilComponent implements OnInit {
       
     })
 
+   function match(){
+
+    }
     
    
 /*
