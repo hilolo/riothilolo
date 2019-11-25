@@ -17,6 +17,7 @@
 						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="YAKUZI">
 							<a href="#">
 							<img src="http://ddragon.leagueoflegends.com/cdn/9.22.1/img/profileicon/{{account.profileIconId}}.png" >
+							
 							</a>
 						</div>
 					</div>
@@ -27,7 +28,8 @@
 		
 		</section>
 		
-		
+		<pre>{{Matchlists.matches | json}}</pre>
+		<pre>{{timeLeft}}</pre>
 		
 		<section class="bg-grey-50 padding-top-40 padding-top-sm-30" style="padding: px;/* margin-top: 20px; */">
 			<div class="container">
@@ -53,6 +55,7 @@
 												<div class="TierInfo">
 			<span class="LeaguePoints">
 					{{league.leaguePoints }}  LP
+					
 			</span>
 							/
 						<span class="WinLose">
@@ -102,9 +105,9 @@
 					
 						
 							<div class="matches">
-
-									<div class="match1" style="margin-top: 40px;" >
-											
+							
+									<div class="match1" *ngFor="let Matchlist of Matchlistdata" style="margin-top: 40px;" >
+										
 												
 	
 												<div class="s-m-t victory-bg1 cf ">
@@ -303,6 +306,7 @@
 	
 										
 									</div>
+
 
 									
 									<div class="match1" style="margin-top:30px;">

@@ -11,8 +11,6 @@ export class League {
     summonerId: string;
     leaguePoints: number;
     kda: number;
-    constructor( ) {
-        this.kda= this.wins/(this.wins+this.losses);
-    }
+   
 
 }
