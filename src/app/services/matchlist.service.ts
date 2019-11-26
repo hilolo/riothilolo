@@ -20,12 +20,7 @@ export class MatchlistService {
    ); }
 
 
-   Matchinfo(matchid : number)  {
 
-   
-    return this.http.get<Match[]>("https://euw1.api.riotgames.com/lol/match/v4/matches/"+ matchid +"?api_key="+ ritoapi.key
-    
- ); }
 
 
 

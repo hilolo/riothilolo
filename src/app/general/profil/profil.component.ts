@@ -2,10 +2,17 @@ import { Component, OnInit, getDebugNode } from '@angular/core';
 import  { BaseService } from './../../services/base.service';
 import  { LeagueService } from './../../services/league.service';
 import  { MatchlistService } from './../../services/matchlist.service';
+import  { MatchService } from './../../services/match.service';
 import  {Account } from 'src/app/models/accounts';
 import  {League } from 'src/app/models/league';
 import { Matchlist } from 'src/app/models/matchlist';
-import { timer } from 'rxjs';
+import  {Match } from 'src/app/models/match';
+import {Observable, queueScheduler} from 'rxjs';
+import {Pipe, PipeTransform} from '@angular/core';
+
+
+
+
 
 @Component({
   selector: 'app-profil',
@@ -30,20 +37,21 @@ export class ProfilComponent implements OnInit {
    account = <Account>{};
    leagues = <League[]> [];
    Matchlists = <Matchlist> {};
+   Match = <Match> {};
    interval;
    timeLeft: number = 60;
    
    accountid :string;
   constructor(private  baseService:BaseService, private  leagueService:LeagueService
-     , private  matchlistService:MatchlistService ) {
+     , private  matchlistService:MatchlistService , private matchService:MatchService) {
     LeagueService
 
    }
 
-  ngOnInit() {
+     ngOnInit() {  
 
 
-    this.baseService.Getinfo("exoRrR").subscribe((data: Account)=>{
+    this.baseService.Getinfo("capman").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -60,37 +68,97 @@ export class ProfilComponent implements OnInit {
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,1).subscribe((Matchlistdata: Matchlist)=>{
+           
 
-          console.log( Matchlistdata.matches );
+         //console.log(  Matchlistdata);
+         
          
           this.Matchlists=Matchlistdata;
+          
+        
+            this.Matchlists.matches.forEach(va => {
+            
+
+          this.matchService.GetMatch(va.gameId).subscribe((Matchinfodata: Match)=>{
+             
+            
+            
+            va.Matchinfo=Matchinfodata; 
+
+            console.log(this.accountid);
+
+          
+           
+            va.Matchinfo.participants[0].spell1Id
+            va.Matchinfo.participantIdentities.forEach( (element) => {
+            if(element.player.accountId == this.accountid) console.log(element.participantId);
+          });
+        
+
+
+                    
+            
+
+            
+           
+          })
+        
+        });
+        
+
+          
+
+        
+          
+
+
+         
+          /*
+
+          this.matchService.GetMatch(4295648398).subscribe((Matchinfodata: Match)=>{
+            ar=Matchinfodata;
+
+            this.Matchlists.matches[0].Matchinfo= Matchinfodata;
+      
+               
+           
+          }) */
+
+
+         
+
+
+         // this.Matchlists.matches[0].Matchinfo= this.GetMatchinfo(4295648398);
+        
+
+          
+
+          
 
 
         //this.Matchlists.matches=this.Matchlists.matches.concat(Matchlistdata.matches);
           
       
-      
-          
-
-          console.log( Matchlistdata.matches );
+         // console.log( Matchlistdata.matches );
           //this.Matchlists.matches=Matchlistdata.matches;
-        
-          
-
-         
-
+     
         }) 
+
+
+          
+      
+
+
+     //this.Matchinfo(4295648398);
+        
         
       
   
       
     })
 
-   function match(){
 
-    }
-    
    
 /*
 show data in json
@@ -112,6 +180,11 @@ show data in json
    */
      
   }
+
+
+  
+
+  
 
 
 

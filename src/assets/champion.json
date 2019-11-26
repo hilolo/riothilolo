@@ -1,0 +1,68 @@
+[
+        {
+        
+            "key": "SummonerBarrier",
+            "summoner": "21"
+        },
+        {
+        
+            "key": "SummonerBoost",
+            "summoner": "1"
+        },
+
+        {
+        
+            "key": "SummonerDot",
+            "summoner": "14"
+        },
+
+        {
+        
+            "key": "SummonerExhaust",
+            "summoner": "3"
+        },
+
+        {
+        
+            "key": "SummonerFlash",
+            "summoner": "6"
+        },
+
+        {
+        
+            "key": "SummonerHaste",
+            "summoner": "13"
+        },
+
+        {
+        
+            "key": "SummonerOdysseyFlash",
+            "summoner": "52"
+        },
+
+        {
+        
+            "key": "SummonerOdysseyRevive",
+            "summoner": "30"
+        },
+
+        {
+        
+            "key": "SummonerPoroRecall",
+            "summoner": "30"
+        },
+
+        {
+        
+            "key": "SummonerSmite",
+            "summoner": "11"
+        },
+
+        {
+        
+            "key": "SummonerTeleport",
+            "summoner": "12"
+        }
+
+
+    ]
