@@ -1273,7 +1273,7 @@ background: #cfa9a9;
 }
 
 .s-m-t .result {
-    display: inline-block;
+    
     float: right;
     width: 50%;
     background: linear-gradient(135deg,transparent 16px,rgba(0,0,0,.05) 0) top left;
@@ -1294,7 +1294,7 @@ background: #cfa9a9;
     float: left;
     height: 88px;
     width: 124px;
-    margin-top: 10px;
+    margin-top: 7px;
     margin-left: 5px;
     position: relative;
 
@@ -1320,8 +1320,9 @@ background: #cfa9a9;
 
 .s-m-m .match-con1 a img {
     display: block;
-    margin-top: -10px;
-    margin-left: -10px;
+
+    margin-left: -1px;
+    border-radius: 50px;
 
 }
 

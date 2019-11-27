@@ -76,7 +76,7 @@ export class ProfilComponent implements OnInit {
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,1).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
            
 
         console.log(  Matchlistdata);

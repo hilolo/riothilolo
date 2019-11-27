@@ -130,7 +130,7 @@
 												<div class="result victory-text1">VICTORY</div>
 												</div>
 	
-
+<!--
 												<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
 					
 														<div *ngIf="part.player.accountId == accountid">
@@ -146,7 +146,7 @@
 													{{Matchlist.Matchinfo.participants[part.participantId-1].championId | championname }}
 													
 														</div>
-														</div>
+														</div>-->
 						
 
 									
@@ -160,11 +160,11 @@
 												
 										
 
-	<img  height="100" width="100" class="img-fluid"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Ryze.png" alt="Ryze">
+	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{Matchlist.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
 	</a>
 	
-	<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell1Id  | summonerSpell   }}.png" alt="Flash">
-	<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell2Id  | summonerSpell   }}.png" alt="">
+	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell1Id  | summonerSpell   }}.png" alt="Flash">
+	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell2Id  | summonerSpell   }}.png" alt="">
 	
 </div>	</div>
 														</div>
