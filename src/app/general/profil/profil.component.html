@@ -33,10 +33,10 @@
 			<pre>{{aq.platformId | json}}</pre>
 
 		</div>
-		
+	
 	
 		<pre>Matchinfodata{{Matchlists.matches  | json   }}</pre>
-		-->
+			-->
 	
 
 		
@@ -115,49 +115,58 @@
 					
 						
 							<div class="matches">
+								
 							
 									<div class="match1" *ngFor="let Matchlist of Matchlists.matches" style="margin-top: 40px;" >
 											
-											<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
+											
 										
-												
-
-												<pre> ara {{accountid  }}  {{part.player.accountId  }}  {{part.player.accountId == accountid ? '	
-															yes' : 'no' }}	 	</pre>
-										</div>	
-	
 												<div class="s-m-t victory-bg1 cf ">
-												<span class="victory-text1">{{Matchlist.Matchinfo.queueId  }}	</span>
+												<span class="victory-text1"> quuenid	</span>
 												<span class="sep victory-text2"> - </span>
-												<span class="victory-text1 ">{{Matchlist.timestamp | date }}</span>
+												<span class="victory-text1 "> date </span>
 												<span class="sep victory-text2"> - </span>
-												<span class="time victory-text3"> {{Matchlist.Matchinfo.gameDuration  }} mins</span>
+												<span class="time victory-text3"> duration mins</span>
 												<div class="result victory-text1">VICTORY</div>
 												</div>
 	
+
+												<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
+					
+														<div *ngIf="part.player.accountId == accountid">
+
+												
+
+
 											
+
+													{{Matchlist.Matchinfo.participants[part.participantId-1].spell1Id     }}
+													{{Matchlist.Matchinfo.participants[part.participantId-1].spell2Id  	   }}		
+													{{Matchlist.Matchinfo.gameId  	   }}	
+													{{Matchlist.Matchinfo.participants[part.participantId-1].championId | championname }}
+													
+														</div>
+														</div>
+						
+
+									
 												<div class="s-m-m victory-bg2 ">
 													<div class="match-con1">
-
-								<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
-										
-															
-						
-					<div *ngIf="part.player.accountId === accountid">
-							{{Matchlist.Matchinfo.participants[part.participantId ].spell1Id | summonerSpell}}	 			
-											
+															<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
+																	<div *ngIf="part.player.accountId === accountid">
+																		
+									
 										<a >
-
+												
 										
 
-	<img height="100" width="100" class="img-fluid"  *ngIf="item==='somevalue'" src="https://opgg-static.akamaized.net/images/lol/champion/Thresh.png" alt="Aatrox">
+	<img  height="100" width="100" class="img-fluid"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Ryze.png" alt="Ryze">
 	</a>
 	
-	<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/SummonerFlash.png" alt="Flash">
-	<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/SummonerTeleport.png" alt="">
+	<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell1Id  | summonerSpell   }}.png" alt="Flash">
+	<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell2Id  | summonerSpell   }}.png" alt="">
 	
-</div>	
-</div>	
+</div>	</div>
 														</div>
 													<div class="match-con2">
 	
@@ -346,7 +355,7 @@
 											<span class="sep victory-text2"> - </span>
 											<span class="victory-text1 ">1 day ago</span>
 											<span class="sep victory-text2"> - </span>
-											<span class="time victory-text3"> 21mins</span>
+											<span class="time victory-text3"> 221mins</span>
 											<div class="result victory-text1">DEFEAT</div>
 											</div>
 

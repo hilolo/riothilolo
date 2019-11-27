@@ -15,6 +15,7 @@ import { ErrorComponent } from './general/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SummonerSpellPipe } from './pipe/summoner-spell.pipe';
+import { ChampionnamePipe } from './pipe/championname.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SummonerSpellPipe } from './pipe/summoner-spell.pipe';
     ProfilComponent,
     ErrorComponent,
     SummonerSpellPipe,
+    ChampionnamePipe,
    
 
  
