@@ -5,6 +5,9 @@ export class Matchlist {
     startIndex: number;
     totalGames: number;
 
+
+    
+
   
 
 

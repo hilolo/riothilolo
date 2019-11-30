@@ -3,6 +3,10 @@
 
 
 
+
+
+
+
 	<div id="wrapper">	
 		<section class="hero cover" style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);" >
 			<div class="hero-bg"></div>
@@ -117,7 +121,7 @@
 							<div class="matches">
 								
 							
-									<div class="match1" *ngFor="let Matchlist of Matchlists.matches" style="margin-top: 40px;" >
+									<div class="match1" *ngFor="let arg of Matchlists.matches" style="margin-top: 40px;" >
 											
 											
 										
@@ -129,44 +133,48 @@
 												<span class="time victory-text3"> duration mins</span>
 												<div class="result victory-text1">VICTORY</div>
 												</div>
-	
-<!--
-												<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
-					
-														<div *ngIf="part.player.accountId == accountid">
 
 												
+	
+										<div  *ngIf="arg.Matchinfo ">
+								<div *ngFor="let part of arg.Matchinfo.participantIdentities">
+										
+	
+										<div *ngIf="part.player.accountId == accountid">
 
+					
 
-											
+									{{arg.Matchinfo.participants[part.participantId-1].spell1Id       }}
+									{{arg.Matchinfo.participants[part.participantId-1].spell2Id    	   }}		
+									{{arg.Matchinfo.gameId  	   }}	
+									{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}
+									
+										</div>
+										</div>
+									</div>
 
-													{{Matchlist.Matchinfo.participants[part.participantId-1].spell1Id     }}
-													{{Matchlist.Matchinfo.participants[part.participantId-1].spell2Id  	   }}		
-													{{Matchlist.Matchinfo.gameId  	   }}	
-													{{Matchlist.Matchinfo.participants[part.participantId-1].championId | championname }}
-													
-														</div>
-														</div>-->
-						
 
 									
 												<div class="s-m-m victory-bg2 ">
 													<div class="match-con1">
-															<div *ngFor="let part of Matchlist.Matchinfo.participantIdentities">
-																	<div *ngIf="part.player.accountId === accountid">
+
+															<div  *ngIf="arg.Matchinfo && arg.Matchinfo.participantIdentities">			
+										<div *ngFor="let part of arg.Matchinfo.participantIdentities">
+												<div *ngIf="part.player.accountId === accountid">
 																		
 									
 										<a >
 												
 										
 
-	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{Matchlist.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
+	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
 	</a>
 	
-	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell1Id  | summonerSpell   }}.png" alt="Flash">
-	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{Matchlist.Matchinfo.participants[part.participantId].spell2Id  | summonerSpell   }}.png" alt="">
+	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell1Id  | summonerSpell   }}.png" alt="Flash">
+	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell2Id  | summonerSpell   }}.png" alt="gag">
 	
 </div>	</div>
+</div>
 														</div>
 													<div class="match-con2">
 	
@@ -184,7 +192,7 @@
 														
 	
 	<span class="pos victory-text1">
-	 {{Matchlist.lane | titlecase  }}		</span>
+	 {{arg.lane | titlecase  }}		</span>
 	<span class="lvl victory-text2">Lv 12 / 8,181G</span>
 	<span class="cs victory-text2"><span >157 CS</span> / <span class="kp">KP23%</span></span>
 	<span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span>
