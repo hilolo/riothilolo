@@ -14,12 +14,12 @@
 				<div class="page-header">
 						
 					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>
-					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  mamak.com</a>
+					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/n3crovision </a>
 					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > VIP</a>
 
 					<div class="profile-avatar">
 						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="YAKUZI">
-							<a href="#">
+							<a >
 							<img src="http://ddragon.leagueoflegends.com/cdn/9.22.1/img/profileicon/{{account.profileIconId}}.png" >
 							
 							</a>
@@ -77,7 +77,7 @@
 						<span class="losses">{{league.losses}}D</span>
 						<br>
 						
-						<span class=" {{(league.wins /(league.wins+league.losses)) > 0.5 ? '	
+						<span class=" {{(league.wins /(league.wins+league.losses)) >= 0.5 ? '	
 						winratio' : 'text-danger'}} " >Win Ratio {{(league.wins /(league.wins+league.losses))*100| number: '1.0-0' }}%</span>
 												</span>
 								
@@ -123,9 +123,21 @@
 							
 									<div class="match1" *ngFor="let arg of Matchlists.matches" style="margin-top: 40px;" >
 											
-											
+
 										
-												<div class="s-m-t victory-bg1 cf ">
+										<div  *ngIf="arg.Matchinfo ">
+											<div *ngFor="let part of arg.Matchinfo.participantIdentities">
+													
+				
+													<div *ngIf="part.player.accountId == accountid">
+			
+							
+												
+											
+													
+										
+												<div class="s-m-t  cf {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
+													victory-bg1' : 'defeat-bg1' }}  " >
 												<span class="victory-text1"> quuenid	</span>
 												<span class="sep victory-text2"> - </span>
 												<span class="victory-text1 "> date </span>
@@ -134,25 +146,13 @@
 												<div class="result victory-text1">VICTORY</div>
 												</div>
 
-												
-	
-										<div  *ngIf="arg.Matchinfo ">
-								<div *ngFor="let part of arg.Matchinfo.participantIdentities">
-										
-	
-										<div *ngIf="part.player.accountId == accountid">
-
-					
-
-									{{arg.Matchinfo.participants[part.participantId-1].spell1Id       }}
-									{{arg.Matchinfo.participants[part.participantId-1].spell2Id    	   }}		
-									{{arg.Matchinfo.gameId  	   }}	
-									{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}
-									
-										</div>
+											</div>
 										</div>
 									</div>
 
+												
+	
+								
 
 									
 												<div class="s-m-m victory-bg2 ">
@@ -176,18 +176,49 @@
 </div>	</div>
 </div>
 														</div>
+														<div  *ngIf="arg.Matchinfo ">
+																<div *ngFor="let part of arg.Matchinfo.participantIdentities">
+																		
+									
+																		<div *ngIf="part.player.accountId == accountid">
 													<div class="match-con2">
+
+													
+
+					
+
+							
+									
+									
 	
 														<span class="kda victory-text1">
-	<span class="num">0</span> <span class="victory-text2"> / </span>
-	<span class="num" style="color:#A93D3D;">4</span> <span class="victory-text2"> / </span>
-	<span class="num">8</span>
+	<span class="num">	{{arg.Matchinfo.participants[part.participantId-1].stats.kills       }}</span> <span class="victory-text2"> / </span>
+	<span class="num" style="color:#A93D3D;"> 	{{arg.Matchinfo.participants[part.participantId-1].stats.deaths       }}  </span> <span class="victory-text2"> / </span>
+	<span class="num">{{arg.Matchinfo.participants[part.participantId-1].stats.assists       }}</span>
 	</span>
 	
-	<span class="kda2 victory-text2">2.00 KDA</span>
+
+	<ng-container
+  *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.deaths      == 0; then loggedIn; else loggedOut">
+</ng-container>
+<ng-template #loggedIn>
+		<span class="kda3 victory-text2 ">Perfect KDA</span>
+
+</ng-template>
+<ng-template #loggedOut>
+		<span class="kda2 victory-text2">{{(arg.Matchinfo.participants[part.participantId-1].stats.kills +  arg.Matchinfo.participants[part.participantId-1].stats.assists) / arg.Matchinfo.participants[part.participantId-1].stats.deaths |  number : '1.2-2'    }} KDA</span>
+</ng-template>
+
+	
+	
+
+	
 	
 	
 														</div>
+													</div>
+												</div>
+											</div>
 													<div class="match-con3">
 														
 	
@@ -195,7 +226,7 @@
 	 {{arg.lane | titlecase  }}		</span>
 	<span class="lvl victory-text2">Lv 12 / 8,181G</span>
 	<span class="cs victory-text2"><span >157 CS</span> / <span class="kp">KP23%</span></span>
-	<span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span>
+	<!-- <span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span> -->
 	
 	
 	

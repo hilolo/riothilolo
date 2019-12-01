@@ -59,7 +59,7 @@ export class ProfilComponent implements OnInit {
 
 
       
-    this.baseService.Getinfo("capman").subscribe((data: Account)=>{
+    this.baseService.Getinfo("aynenkınık").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -76,10 +76,10 @@ export class ProfilComponent implements OnInit {
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,100).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
            
 
-        console.log(  Matchlistdata);
+      //  console.log(  Matchlistdata);
          
          
           this.Matchlists=Matchlistdata;
@@ -95,7 +95,7 @@ export class ProfilComponent implements OnInit {
             va.Matchinfo=Matchinfodata;
             
           
-        console.log(this.accountid);
+      
         
 
         

@@ -1386,6 +1386,13 @@ font-size: 18px;
     line-height: 20px;
 }
 
+.match-con2 .kda3 {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+
+}
+
 .victory-text2{
 	    color: #838e9c;
 }
