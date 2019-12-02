@@ -28,8 +28,7 @@
 				</div>
 			</div>
 		</section>
-		<section style="background-image: url(https://i.imgur.com/wCQqiYF.png);background-repeat: repeat; background-size: 100% 100%;"   class="profile-nav height-20 border-bottom-1 border-grey-300  hidden-xs" >
-		
+		<section   class="profile-nav height-20  	" style="background-color: #fafafa;" >
 		</section>
 		 
 	<!--
@@ -119,48 +118,47 @@
 					
 						
 							<div class="matches">
+
+									<div  *ngFor="let arg of Matchlists.matches" >
+
+									<div  *ngIf="arg.Matchinfo ">
+											<div *ngFor="let part of arg.Matchinfo.participantIdentities">	
+											<div *ngIf="part.player.accountId == accountid">
+												
+			
+									
 								
 							
-									<div class="match1" *ngFor="let arg of Matchlists.matches" style="margin-top: 40px;" >
+									<div class="match1"  style="margin-top: 40px;" >
 											
-
 										
-										<div  *ngIf="arg.Matchinfo ">
-											<div *ngFor="let part of arg.Matchinfo.participantIdentities">
-													
-				
-													<div *ngIf="part.player.accountId == accountid">
-			
-							
-												
 											
-													
+											
+										
+														
 										
 												<div class="s-m-t  cf {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
 													victory-bg1' : 'defeat-bg1' }}  " >
-												<span class="victory-text1"> quuenid	</span>
+												<span class="victory-text1"> {{arg.Matchinfo.gameMode}}	</span>
 												<span class="sep victory-text2"> - </span>
-												<span class="victory-text1 "> date </span>
+												<span class="victory-text1 "> {{arg.timestamp  | date: 'dd MMM'}} </span>
 												<span class="sep victory-text2"> - </span>
-												<span class="time victory-text3"> duration mins</span>
-												<div class="result victory-text1">VICTORY</div>
+												<span class="time victory-text3"> 	{{arg.Matchinfo.gameDuration/60  | number: '1.0-0'}}  mins</span>
+												<div class="result victory-text1">  {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
+														VICTORY' : 'DEFEAT' }}</div>
 												</div>
 
-											</div>
-										</div>
-									</div>
-
+										
 												
 	
 								
 
 									
-												<div class="s-m-m victory-bg2 ">
+												<div class="s-m-m  {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
+												victory-bg2' : 'defeat-bg2' }} ">
 													<div class="match-con1">
 
-															<div  *ngIf="arg.Matchinfo && arg.Matchinfo.participantIdentities">			
-										<div *ngFor="let part of arg.Matchinfo.participantIdentities">
-												<div *ngIf="part.player.accountId === accountid">
+															
 																		
 									
 										<a >
@@ -173,14 +171,9 @@
 	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell1Id  | summonerSpell   }}.png" alt="Flash">
 	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell2Id  | summonerSpell   }}.png" alt="gag">
 	
-</div>	</div>
-</div>
+
 														</div>
-														<div  *ngIf="arg.Matchinfo ">
-																<div *ngFor="let part of arg.Matchinfo.participantIdentities">
-																		
-									
-																		<div *ngIf="part.player.accountId == accountid">
+														
 													<div class="match-con2">
 
 													
@@ -216,42 +209,92 @@
 	
 	
 														</div>
-													</div>
-												</div>
-											</div>
+												
 													<div class="match-con3">
 														
 	
 	<span class="pos victory-text1">
 	 {{arg.lane | titlecase  }}		</span>
-	<span class="lvl victory-text2">Lv 12 / 8,181G</span>
-	<span class="cs victory-text2"><span >157 CS</span> / <span class="kp">KP23%</span></span>
+	<span class="lvl victory-text2">LvL 	{{arg.Matchinfo.participants[part.participantId-1].stats.champLevel  }}	 / {{arg.Matchinfo.participants[part.participantId-1].stats.goldEarned  | number: '2.'  }} G</span>
+	<span class="cs victory-text2"><span >{{arg.Matchinfo.participants[part.participantId-1].stats.totalMinionsKilled  }}	 CS</span> / <span class="kp">D {{arg.Matchinfo.participants[part.participantId-1].stats.totalDamageDealt | shortnumber  }} </span></span>
 	<!-- <span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span> -->
 	
 	
 	
 														</div>
-													<div class="match-con4">
-	
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://lolprofile.net/web/img/item-1.png">
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-	
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-	
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-	
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-	
-	
-														<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/3071.png">
-													</div>
+			<div class="match-con4">
+					
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item0 != '0'   ; then item0 else item0else"></div>
+					<ng-template #item0>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item0       }}	.png">
+					</ng-template>
+					<ng-template #item0else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item1 != '0'   ; then item1 else item1else"></div>
+					<ng-template #item1>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item1       }}	.png">
+					</ng-template>
+					<ng-template #item1else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+
+					
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item2 != '0'   ; then item2 else item2else"></div>
+					<ng-template #item2>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item2      }}	.png">
+					</ng-template>
+					<ng-template #item2else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item6 != '0'   ; then item6 else item6else"></div>
+					<ng-template #item6>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item6      }}	.png">
+					</ng-template>
+					<ng-template #item6else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item3 != '0'   ; then item3 else item3else"></div>
+					<ng-template #item3>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item3     }}	.png">
+					</ng-template>
+					<ng-template #item3else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+
+					
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item4 != '0'   ; then item4 else item4else"></div>
+					<ng-template #item4>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item4      }}	.png">
+					</ng-template>
+					<ng-template #item4else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item5 != '0'   ; then item5 else item5else"></div>
+					<ng-template #item5>
+							<img width="30" height="30" class="item0 " alt="item0" src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item5      }}	.png">
+					</ng-template>
+					<ng-template #item5else>
+							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
+					</ng-template>
+
+
+					
+					
+			
+			</div>
 	
 													<div class="match-con5">
 	
@@ -382,6 +425,11 @@
 	
 										
 									</div>
+
+								</div>
+							</div>
+							</div>
+			</div>
 
 
 									

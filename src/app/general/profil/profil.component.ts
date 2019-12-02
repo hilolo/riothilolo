@@ -59,7 +59,7 @@ export class ProfilComponent implements OnInit {
 
 
       
-    this.baseService.Getinfo("aynenkınık").subscribe((data: Account)=>{
+    this.baseService.Getinfo("hilolohahahahaha").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -76,7 +76,7 @@ export class ProfilComponent implements OnInit {
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,2).subscribe((Matchlistdata: Matchlist)=>{
            
 
       //  console.log(  Matchlistdata);

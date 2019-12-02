@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SummonerSpellPipe } from './pipe/summoner-spell.pipe';
 import { ChampionnamePipe } from './pipe/championname.pipe';
+import { ShortnumberPipe } from './pipe/shortnumber.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ChampionnamePipe } from './pipe/championname.pipe';
     ErrorComponent,
     SummonerSpellPipe,
     ChampionnamePipe,
+    ShortnumberPipe,
    
 
  
