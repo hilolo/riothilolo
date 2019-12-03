@@ -18,6 +18,8 @@ import { SummonerSpellPipe } from './pipe/summoner-spell.pipe';
 import { ChampionnamePipe } from './pipe/championname.pipe';
 import { ShortnumberPipe } from './pipe/shortnumber.pipe';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { ShortnumberPipe } from './pipe/shortnumber.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
 
   ],
   providers: [],

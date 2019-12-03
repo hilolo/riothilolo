@@ -7,6 +7,8 @@ import  {Account } from 'src/app/models/accounts';
 import  {League } from 'src/app/models/league';
 import { Matchlist } from 'src/app/models/matchlist';
 import  {Match } from 'src/app/models/match';
+import { NgxSpinnerService } from "ngx-spinner";
+import {Router} from '@angular/router'
 
 
 
@@ -47,19 +49,20 @@ export class ProfilComponent implements OnInit {
 
     
   constructor(private  baseService:BaseService, private  leagueService:LeagueService
-     , private  matchlistService:MatchlistService , private matchService:MatchService) {
-    LeagueService
+     , private  matchlistService:MatchlistService , private matchService:MatchService,private spinner: NgxSpinnerService
+     ,private _router:Router) {
+    
 
    }
 
      ngOnInit() {  
 
-     
+      this.spinner.show();
 
 
 
       
-    this.baseService.Getinfo("hilolohahahahaha").subscribe((data: Account)=>{
+    this.baseService.Getinfo("tgaphro").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -76,12 +79,12 @@ export class ProfilComponent implements OnInit {
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,2).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,5 ).subscribe((Matchlistdata: Matchlist)=>{
            
 
       //  console.log(  Matchlistdata);
          
-         
+      
           this.Matchlists=Matchlistdata;
           
           
@@ -104,14 +107,17 @@ export class ProfilComponent implements OnInit {
         
         });
         
-
+        this.spinner.hide();
 
         }) 
 
 
           
       
-
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 5000);
 
      //this.Matchinfo(4295648398);
         
@@ -142,6 +148,53 @@ show data in json
 
    */
      
+  }
+
+
+  public morematches() {
+
+    this._router.navigate(['dashboard']);
+    this.spinner.show();
+
+
+    this.matchlistService.Getmatchlist(this.accountid,0,10 ).subscribe((Matchlistdata: Matchlist)=>{
+           
+
+      //  console.log(  Matchlistdata);
+         
+        
+          this.Matchlists=Matchlistdata;
+        
+          
+          
+        
+            this.Matchlists.matches.forEach(va => {
+            
+
+          this.matchService.GetMatch(va.gameId).subscribe((Matchinfodata: Match)=>{ 
+            
+            
+            va.Matchinfo=Matchinfodata;
+            
+          
+      
+        
+
+        
+        
+          })
+        
+        });
+        
+        this.spinner.hide();
+
+        }) 
+ 
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
+   
   }
 
 

@@ -21,6 +21,7 @@ export class SummonerSpellPipe implements PipeTransform {
     {key: 11, summoner: 'SummonerSmite'},
     {key: 12, summoner: 'SummonerTeleport'},
     {key: 7, summoner: 'SummonerHeal'},
+    {key: 32, summoner: 'SummonerSnowball'},
  
 ]
 
