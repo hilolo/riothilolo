@@ -9,7 +9,7 @@ import { Matchlist } from 'src/app/models/matchlist';
 import  {Match } from 'src/app/models/match';
 import { NgxSpinnerService } from "ngx-spinner";
 import {Router} from '@angular/router'
-
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -24,7 +24,7 @@ import {Router} from '@angular/router'
 export class ProfilComponent implements OnInit {
 
 
-  
+  4
   myaccount : Account ={ 
     id: '1',
     accountId: '1',
@@ -50,19 +50,22 @@ export class ProfilComponent implements OnInit {
     
   constructor(private  baseService:BaseService, private  leagueService:LeagueService
      , private  matchlistService:MatchlistService , private matchService:MatchService,private spinner: NgxSpinnerService
-     ,private _router:Router) {
+     , private route: ActivatedRoute,) {
     
 
    }
 
      ngOnInit() {  
 
+      const id = +this.route.snapshot.paramMap.get('id');
+      console.log(id);
+
       this.spinner.show();
 
 
 
       
-    this.baseService.Getinfo("tgaphro").subscribe((data: Account)=>{
+    this.baseService.Getinfo("WIZHID").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -153,7 +156,7 @@ show data in json
 
   public morematches() {
 
-    this._router.navigate(['dashboard']);
+   
     this.spinner.show();
 
 
