@@ -10,7 +10,7 @@ import { ErrorComponent } from './general/error/error.component';
 const routes: Routes = [
   { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: MainComponent },
-  {path: 'profil/:id', component: ProfilComponent },
+  {path: 'profil/:summonername', component: ProfilComponent },
   { path: '**', component: ErrorComponent }
  
 ];

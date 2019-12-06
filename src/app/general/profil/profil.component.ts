@@ -57,15 +57,15 @@ export class ProfilComponent implements OnInit {
 
      ngOnInit() {  
 
-      const id = +this.route.snapshot.paramMap.get('id');
-      console.log(id);
+      let namesumm = this.route.snapshot.paramMap.get('summonername');
+      console.log(namesumm.replace(" ",""));
 
       this.spinner.show();
 
 
 
       
-    this.baseService.Getinfo("WIZHID").subscribe((data: Account)=>{
+    this.baseService.Getinfo("TBLlilpunisher").subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
