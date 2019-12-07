@@ -56,16 +56,16 @@ export class ProfilComponent implements OnInit {
    }
 
      ngOnInit() {  
-
-      let namesumm = this.route.snapshot.paramMap.get('summonername');
-      console.log(namesumm.replace(" ",""));
+             
+      let namesumm = this.route.snapshot.paramMap.get('summonername').replace(/\s/g, "");
+      console.log(namesumm);
 
       this.spinner.show();
 
 
 
       
-    this.baseService.Getinfo("TBLlilpunisher").subscribe((data: Account)=>{
+    this.baseService.Getinfo(namesumm).subscribe((data: Account)=>{
       console.log(data);
       this.account = data;
       this.accountid=data.accountId;
@@ -78,11 +78,14 @@ export class ProfilComponent implements OnInit {
         
       //    console.log("account id " + JSON.stringify(this.leagues) );
              
-      })
+      }),
+      error => {
+        console.log("error za");
+      }
 
       
 
-         this.matchlistService.Getmatchlist(this.accountid,0,5 ).subscribe((Matchlistdata: Matchlist)=>{
+         this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
            
 
       //  console.log(  Matchlistdata);
@@ -153,20 +156,27 @@ show data in json
      
   }
 
-
+  indexd=0;
+  indexfin=5;
   public morematches() {
 
-   
+      this.indexd +=5;
+      this.indexfin +=5;
     this.spinner.show();
 
-
-    this.matchlistService.Getmatchlist(this.accountid,0,10 ).subscribe((Matchlistdata: Matchlist)=>{
+      if(this.indexd < 30 ){
+    this.matchlistService.Getmatchlist(this.accountid,this.indexd ,this.indexfin ).subscribe((Matchlistdata: Matchlist)=>{
            
 
       //  console.log(  Matchlistdata);
          
+      Matchlistdata.matches.forEach(x=>{
+
+        this.Matchlists.matches.push(x);
         
-          this.Matchlists=Matchlistdata;
+
+      });
+          
         
           
           
@@ -197,6 +207,7 @@ show data in json
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 5000);
+  }
    
   }
 

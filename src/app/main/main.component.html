@@ -15,9 +15,9 @@
 							<div class="col-sm-offset-3 col-sm-6">
 								<div class="form-group input-icon-right">
 									<i class="fa fa-search	"></i>
-									<input type="text" class="form-control"  placeholder="summoner's name..." autofocus="">
+									<input type="text" class="form-control" [(ngModel)]="sums"  placeholder="summoner's name..." autofocus="">
 									
-
+								
 								</div>
 						
 							</div>
@@ -27,7 +27,7 @@
 		  
 
 
-							<a  routerLink="/profil/a"    class="btn btn-primary btn-lg btn-rounded" >SEARCH</a>
+							<a  routerLink="/profil/{{sums}}"    class="btn btn-primary btn-lg btn-rounded" >SEARCH</a>
 						</div>		
 					</div>
 				</div>
