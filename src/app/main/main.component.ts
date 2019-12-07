@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  @Input() sums: string; 
   ngOnInit() {
+    
+
+ 
+
   }
+
+  goserach(){
+    this.router.navigate(['/profil', this.sums]);
+  }
+  
+
+
 
 }

@@ -15,7 +15,7 @@
 							<div class="col-sm-offset-3 col-sm-6">
 								<div class="form-group input-icon-right">
 									<i class="fa fa-search	"></i>
-									<input type="text" class="form-control" [(ngModel)]="sums"  placeholder="summoner's name..." autofocus="">
+									<input type="text" class="form-control" [(ngModel)]="sums" (keyup.enter)="goserach()" placeholder="summoner's name..." autofocus="">
 									
 								
 								</div>
