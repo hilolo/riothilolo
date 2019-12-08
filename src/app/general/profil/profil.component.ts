@@ -50,7 +50,7 @@ export class ProfilComponent implements OnInit {
     
   constructor(private  baseService:BaseService, private  leagueService:LeagueService
      , private  matchlistService:MatchlistService , private matchService:MatchService,private spinner: NgxSpinnerService
-     , private route: ActivatedRoute,) {
+     , private route: ActivatedRoute,private router: Router) {
     
 
    }
@@ -58,15 +58,15 @@ export class ProfilComponent implements OnInit {
      ngOnInit() {  
              
       let namesumm = this.route.snapshot.paramMap.get('summonername').replace(/\s/g, "");
-      console.log(namesumm);
-
+     
       this.spinner.show();
 
 
 
       
-    this.baseService.Getinfo(namesumm).subscribe((data: Account)=>{
-      console.log(data);
+    this.baseService.Getinfo(namesumm).subscribe
+    ((data: Account)=>{
+     console.log(data);
       this.account = data;
       this.accountid=data.accountId;
       this.leagueService.Getleaugue( data.id).subscribe((leauguedata: League[])=>{
@@ -78,12 +78,7 @@ export class ProfilComponent implements OnInit {
         
       //    console.log("account id " + JSON.stringify(this.leagues) );
              
-      }),
-      error => {
-        console.log("error za");
-      }
-
-      
+      })
 
          this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
            
@@ -131,7 +126,19 @@ export class ProfilComponent implements OnInit {
       
   
       
-    })
+    }, err => 
+    {
+     
+      if( err.status == 404)
+      {
+        console.log("account not found");
+          this.router.navigate(['/404']);
+      }
+      if( err.status == 403){
+        console.log("key expired");
+      }
+    }
+    )
 
 
    

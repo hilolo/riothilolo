@@ -8,8 +8,8 @@ import { ErrorComponent } from './general/error/error.component';
 
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: MainComponent },
+  { path: '',   redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: MainComponent },
   {path: 'profil/:summonername', component: ProfilComponent },
   { path: '**', component: ErrorComponent }
  
