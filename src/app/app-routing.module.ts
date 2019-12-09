@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { MainComponent } from './main/main.component';
 import { ProfilComponent } from './general/profil/profil.component';
+import { StreamersComponent } from './general/streamers/streamers.component';
 import { ErrorComponent } from './general/error/error.component';
 
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: '',   redirectTo: '/', pathMatch: 'full' },
   { path: '', component: MainComponent },
   {path: 'profil/:summonername', component: ProfilComponent },
+  {path: 'Streamers', component: StreamersComponent },
   { path: '**', component: ErrorComponent }
  
 ];

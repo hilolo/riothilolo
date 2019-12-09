@@ -19,6 +19,8 @@ import { ChampionnamePipe } from './pipe/championname.pipe';
 import { ShortnumberPipe } from './pipe/shortnumber.pipe';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { QuennePipe } from './pipe/quenne.pipe';
+import { StreamersComponent } from './general/streamers/streamers.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SummonerSpellPipe,
     ChampionnamePipe,
     ShortnumberPipe,
+    QuennePipe,
+    StreamersComponent,
    
 
  

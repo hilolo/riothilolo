@@ -16,7 +16,7 @@ export class SummonerSpellPipe implements PipeTransform {
     {key: 4, summoner: 'SummonerFlash'},
     {key: 6, summoner: 'SummonerHaste'},
     {key: 52, summoner: 'SummonerOdysseyFlash'},
-    {key: 30, summoner: 'SummonerOdysseyRevive'},
+    {key: 50, summoner: 'SummonerOdysseyRevive'},
     {key: 31, summoner: 'SummonerPoroRecall'},
     {key: 11, summoner: 'SummonerSmite'},
     {key: 12, summoner: 'SummonerTeleport'},

@@ -1,21 +1,14 @@
-	<!-- wrapper -->
-
-
-
-
-
-
 
 
 	<div id="wrapper">	
 		<section class="hero cover" style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);" >
-			<div class="hero-bg"></div>
+			<div class="hero-bg-primary2"></div>
 			<div class="container relative">
 				<div class="page-header">
 						
 					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>
-					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/lilpunishow </a>
-					<a href="#" class="btn btn-primary btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > TEAM  TBL	</a>
+					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/lilpunishow </a>
+					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > TEAM  TBL	</a>
 
 					<div class="profile-avatar">
 						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="HILOLO">
@@ -115,6 +108,7 @@
 						
 					</div>
 					
+					
 					<div class="col-md-8 col-sm-8">
 					
 						
@@ -124,23 +118,12 @@
 
 									<div  *ngIf="arg.Matchinfo ">
 											<div *ngFor="let part of arg.Matchinfo.participantIdentities">	
-											<div *ngIf="part.player.accountId == accountid">
-												
-			
-									
-								
-							
-									<div class="match1"  style="margin-top: 40px;" >
-											
-										
-											
-											
-										
-														
-										
-												<div class="s-m-t  cf {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
+
+											<div *ngIf="part.player.summonerId == specialid">
+							<div class="match1"  style="margin-top: 40px;" >
+										<div class="s-m-t  cf {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
 													victory-bg1' : 'defeat-bg1' }}  " >
-												<span class="victory-text1"> {{arg.Matchinfo.gameMode}}	</span>
+												<span class="victory-text1"> {{arg.Matchinfo.queueId | quenne}}	</span>
 												<span class="sep victory-text2"> - </span>
 												<span class="victory-text1 "> {{arg.timestamp  | date: 'dd MMM'}} </span>
 												<span class="sep victory-text2"> - </span>
@@ -215,7 +198,9 @@
 														
 	
 	<span class="pos victory-text1">
-	 {{arg.lane | titlecase  }}		</span>
+			{{ (arg.lane | titlecase) == 'None'  ? '	
+			Fill' : (arg.lane | titlecase) }}  
+	 	</span>
 	<span class="lvl victory-text2">LvL 	{{arg.Matchinfo.participants[part.participantId-1].stats.champLevel  }}	 / {{arg.Matchinfo.participants[part.participantId-1].stats.goldEarned  | number: '2.'  }} G</span>
 	<span class="cs victory-text2"><span >{{arg.Matchinfo.participants[part.participantId-1].stats.totalMinionsKilled  }}	 CS</span> / <span class="kp">D {{arg.Matchinfo.participants[part.participantId-1].stats.totalDamageDealt | shortnumber  }} </span></span>
 	<!-- <span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span> -->
@@ -308,7 +293,7 @@
 	</td>
 	<td>
 	<div>
-	<a class="victory-text4 " data-toggle="tooltip "   title="{{ arg.Matchinfo.participantIdentities[0].player.summonerName}}"  >
+	<a class="victory-text4 " data-toggle="tooltip "  data-placement="left" title="Tooltip on left"  title="{{ arg.Matchinfo.participantIdentities[0].player.summonerName}}"  >
 		
 			{{ arg.Matchinfo.participantIdentities[0].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[0].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[0].player.summonerName ) }}
 				</a>
@@ -321,7 +306,7 @@
 	</td>
 	<td>
 	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[1].player.summonerName}}"  >
+	<a class="victory-text4 " data-toggle="tooltip"  title="{{ arg.Matchinfo.participantIdentities[1].player.summonerName}}"  >
 			{{ arg.Matchinfo.participantIdentities[1].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[1].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[1].player.summonerName ) }}
 
 				</a>

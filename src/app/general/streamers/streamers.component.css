@@ -1,0 +1,21 @@
+.victory-text4 {
+    color: #556879;
+}
+
+.vip-color{
+    background-color: #bed804;
+}
+
+.card .caption {
+    padding: 12px 10px !important;
+}
+
+.twitch-size{
+
+    height: 228px;
+    width: 228px;
+}
+
+
+.card .twitch-v{position:absolute;top:15px;right:20px;color:#FFF;font-size:14px}
+.card .twitch-v i{margin-right:8px}

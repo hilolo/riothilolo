@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.component.html',
@@ -45,7 +46,7 @@ export class ProfilComponent implements OnInit {
    timeLeft: number = 60;
    
    accountid :string;
-  
+   specialid :string;
 
     
   constructor(private  baseService:BaseService, private  leagueService:LeagueService
@@ -56,6 +57,15 @@ export class ProfilComponent implements OnInit {
    }
 
      ngOnInit() {  
+
+   
+     
+   
+  
+  
+
+
+
              
       let namesumm = this.route.snapshot.paramMap.get('summonername').replace(/\s/g, "");
      
@@ -69,6 +79,7 @@ export class ProfilComponent implements OnInit {
      console.log(data);
       this.account = data;
       this.accountid=data.accountId;
+      this.specialid=data.id;
       this.leagueService.Getleaugue( data.id).subscribe((leauguedata: League[])=>{
         this.leagues = leauguedata;       
      this.leagues = this.leagues.filter(item => item.queueType !== "RANKED_TFT" && item.queueType !== "RANKED_FLEX_TT" );
@@ -83,7 +94,7 @@ export class ProfilComponent implements OnInit {
          this.matchlistService.Getmatchlist(this.accountid,0,5).subscribe((Matchlistdata: Matchlist)=>{
            
 
-      //  console.log(  Matchlistdata);
+        console.log(  Matchlistdata);
          
       
           this.Matchlists=Matchlistdata;

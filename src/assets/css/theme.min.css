@@ -541,6 +541,7 @@ section.half-section .col .half-bg{padding:0;height:100%;min-height:100%;positio
 section.hero{position:relative;background-repeat:no-repeat;background-position:top center;background-size:cover;padding:60px 0}
 section.hero .hero-bg{height:100%;width:100%;background:rgba(0,0,0,0.7);position:absolute;top:0;z-index:2}
 section.hero .hero-bg-primary{height:100%;width:100%;background:rgba(39,118,220,0.9);position:absolute;top:0;z-index:2}
+section.hero .hero-bg-primary2{height:100%;width:100%;background:rgba(39,118,220,0.6);position:absolute;top:0;z-index:2}
 section.hero .container.relative{z-index:3;height:100%}
 section.hero .breadcrumb{padding:0;font-weight:300!important}
 section.hero .breadcrumb>.active,section.hero .breadcrumb>li>a{color:#FFF}
@@ -1480,6 +1481,7 @@ font-size: 18px;
 }
 .victory-text4 {
     color: #556879;
+    cursor: pointer;
 }
 
 
@@ -1489,7 +1491,9 @@ font-size: 18px;
 
 .ba3ad{
     margin: 5px;
+    font-weight: bold;
 }
 .ba3ad img{
     padding: 1px;
 }
+
