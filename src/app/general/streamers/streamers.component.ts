@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import  { InfogetidService } from './../../services/twitch/infogetid.service';
 import  {Twitchuser } from 'src/app/models/twitchuser';
 
+
 @Component({
   selector: 'app-streamers',
   templateUrl: './streamers.component.html',
@@ -11,17 +12,41 @@ export class StreamersComponent implements OnInit {
 
   constructor(private  infogetidService:InfogetidService) { }
 
-  users :Twitchuser;
+  userstv :Twitchuser;
+  qr ='';
   ngOnInit() {
+  
+
+
+  
     
-    let datas: string[] = ['dreamerzlel', 'a_couple_streams', 'kasaikogaming']; 
-    this.infogetidService.Getinfoid(datas).subscribe( ar => {
-        this.users=ar;
-        ar.users[0].stream= null;
-        if(!ar.users[0].stream)
-        {
-        console.log(ar.users[0] );
-      }
+    let datas: string[] = ['dreamerzlel', 'kasaikogaming','loltyler1']; 
+    
+    datas.forEach((item, index, arr) => {
+      if(!arr[index + 1])  this.qr += item;
+      else this.qr += item+',';
+     
+    })
+    
+ 
+    this.infogetidService.Getinfoid(this.qr).subscribe( ar => {
+        this.userstv=ar;
+      
+       
+
+        this.userstv.users.forEach(at =>  {
+        this.infogetidService.Streaminfo(at._id).subscribe( aq => {
+          
+    
+          at.stream=aq;
+        }
+        );
+      });
+   
+      console.log( this.userstv);
+     
+
+
     }, err => 
     {
         console.log("account not found" ,err );

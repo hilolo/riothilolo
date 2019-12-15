@@ -11,7 +11,7 @@ export class Twitchuser {
     created_at: string;
     updated_at: string;
     logo: string;
-    stream: Stream;
+    stream: Stream | null;
     
   }
   

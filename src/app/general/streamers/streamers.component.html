@@ -1,10 +1,22 @@
-	<!-- wrapper -->
+    <!-- wrapper -->
+
+    <div  *ngIf="userstv ">
+    <div *ngFor="let user of userstv.users">
+      
+        <pre>   {{ user.display_name | json}}   /////
+
+    </pre>
+
+     <img src="{{ user.logo }}" width="32" height="32" alt="Summoner Icon">
+
+</div>
+</div>
 	<div id="wrapper">	
             <section class="hero height-250 hero-game" style="background-image: url(https://i.imgur.com/zZ0tQHb.jpg);">
                 <div class="hero-bg-primary2"></div>
                 <div class="container">
                     <div class="page-header">
-                        <div class="page-title">Moroccan Stremrs</div>
+                        <div class="page-title">Moroccan Streamers</div>
                         
                     
                     </div>
@@ -30,19 +42,19 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                                     <div class="card ">
                                                         <div class="card-img">
-                                                            <a href="games-single.html"><img style="height: 170px; width: 230px;" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_handongsuk-1050x1050.jpg" alt=""></a>
+                                                            <a href="games-single.html"><img style="height: 170px; width: 230px;" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_n3crovision-1050x1050.jpg" alt=""></a>
                                                             <div class="category">	<span class="label label-success">Live</span></div>
                                                             <div class="meta">	<span class="label vip-color">VIP</span></div>
                                                             <div class="twitch-v">	<a  style="color:white;"><i class="fa fa-eye"></i> <span style="color:white;"	>6</span></a></div>
                                                         </div>
                                                         <div class="caption height-150 " style="overflow:auto;">
-                                                            <h3 class="card-title"><a href="games-single.html"> </a> Viktor</h3>
-                                                            <ul><li style="font-size: 10px;">Je stream principalement du League of Legends en Toplane. Master/challenger Euw</li></ul>
+                                                            <h3 class="card-title"><a href="games-single.html"> </a> n3crovision</h3>
+                                                            <ul><li style="font-size: 10px;"> Euw Master toplaner </li></ul>
                                                             <ul>
                                                                     <div style="padding: 10px;">
-                                                                    <img src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/4363.png" width="32" height="32" alt="Summoner Icon">
+                                                                    <img src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/4426.png" width="32" height="32" alt="Summoner Icon">
                                                                     <div style="display:inline-block;white-space: nowrap;">
-                                                                    <a href="https://lolprofile.net/summoner/euw/CallmePoulaya" class="darkblue-link " style="line-height:12px;font-weight:500;margin-left: 10px;">  CallmePoulaya</a>
+                                                                    <a href="https://lolprofile.net/summoner/euw/CallmePoulaya" class="darkblue-link " style="line-height:12px;font-weight:500;margin-left: 10px;">  TMS N3crovision</a>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -52,58 +64,32 @@
                                                     </div>
                                                 </div>
 
+
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                        <div class="card ">
-                                                            <div class="card-img">
-                                                                <a href="games-single.html"><img style="height: 170px; width: 230px;" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_handongsuk-1050x1050.jpg" alt=""></a>
-                                                                <div class="category">	<span class="label label-danger">Offline</span></div>
-                                                                <div class="meta">	<span class="label vip-color">VIP</span></div>
-                                                                <div class="twitch-v">	<a  style="color:white;"><i class="fa fa-eye"></i> <span style="color:white;"	>6</span></a></div>
-                                                            </div>
-                                                            <div class="caption height-150 " style="overflow:auto;">
-                                                                <h3 class="card-title"><a href="games-single.html"> </a> Viktor</h3>
-                                                                <ul><li style="font-size: 10px;">Je stream principalement du League of Legends en Toplane. Master/challenger Euw</li></ul>
-                                                                <ul>
-                                                                        <div style="padding: 10px;">
-                                                                        <img src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/4363.png" width="32" height="32" alt="Summoner Icon">
-                                                                        <div style="display:inline-block;white-space: nowrap;">
-                                                                        <a href="https://lolprofile.net/summoner/euw/CallmePoulaya" class="darkblue-link " style="line-height:12px;font-weight:500;margin-left: 10px;">  CallmePoulaya</a>
-                                                                        </div>
+                                                    <div class="card ">
+                                                        <div class="card-img">
+                                                            <a href="games-single.html"><img style="height: 170px; width: 230px;" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_n3crovision-1050x1050.jpg" alt=""></a>
+                                                            <div class="category">	<span class="label label-success">Live</span></div>
+                                                            <div class="meta">	<span class="label vip-color">VIP</span></div>
+                                                           
+                                                        </div>
+                                                        <div class="caption height-150 " style="overflow:auto;">
+                                                            <h3 class="card-title"><a href="games-single.html"> </a> n3crovision</h3>
+                                                            <ul><li style="font-size: 10px;"> Euw Master toplaner </li></ul>
+                                                            <ul>
+                                                                    <div style="padding: 10px;">
+                                                                    <img src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/4426.png" width="32" height="32" alt="Summoner Icon">
+                                                                    <div style="display:inline-block;white-space: nowrap;">
+                                                                    <a href="https://lolprofile.net/summoner/euw/CallmePoulaya" class="darkblue-link " style="line-height:12px;font-weight:500;margin-left: 10px;">  TMS N3crovision</a>
                                                                     </div>
-                                                                    
-        
-                                                                        </ul>
-                                                            </div>
+                                                                </div>
+                                                                
+    
+                                                                    </ul>
                                                         </div>
                                                     </div>
-
-
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                            <div class="card ">
-                                                                <div class="card-img">
-                                                                    <a href="games-single.html"><img style="height: 170px; width: 230px;" src="https://static-cdn.jtvnw.net/previews-ttv/live_user_handongsuk-1050x1050.jpg" alt=""></a>
-                                                                    <div class="category">	<span class="label label-danger">Offline</span></div>
-                                                                    <div class="meta">	<span class="label vip-color">VIP</span></div>
-                                                                    <div class="twitch-v">	<a  style="color:white;"><i class="fa fa-eye"></i> <span style="color:white;"	>6</span></a></div>
-                                                                </div>
-                                                                <div class="caption height-150 " style="overflow:auto;">
-                                                                    <h3 class="card-title"><a href="games-single.html"> </a> Viktor</h3>
-                                                                    <ul><li style="font-size: 10px;">Je stream principalement du League of Legends en Toplane. Master/challenger Euw</li></ul>
-                                                                    <ul>
-                                                                            <div style="padding: 10px;">
-                                                                            <img src="https://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/4363.png" width="32" height="32" alt="Summoner Icon">
-                                                                            <div style="display:inline-block;white-space: nowrap;">
-                                                                            <a href="https://lolprofile.net/summoner/euw/CallmePoulaya" class="darkblue-link " style="line-height:12px;font-weight:500;margin-left: 10px;">  CallmePoulaya</a>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-            
-                                                                            </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-    
-                                                
+                                                </div>
+                                            
                         
                                         
                         
