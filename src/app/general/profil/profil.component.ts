@@ -7,6 +7,7 @@ import  {Account } from 'src/app/models/accounts';
 import  {League } from 'src/app/models/league';
 import { Matchlist } from 'src/app/models/matchlist';
 import  {Match } from 'src/app/models/match';
+import  {version } from 'src/app/models/version';
 import { NgxSpinnerService } from "ngx-spinner";
 import {Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
@@ -26,16 +27,7 @@ export class ProfilComponent implements OnInit {
 
 
   4
-  myaccount : Account ={ 
-    id: '1',
-    accountId: '1',
-    profileIconId : 1,
-    name : '1',
-    puuid: '1',
-    summonerLevel: 1,
-    revisionDate: '1'
-  
-  }
+
 
 
 
@@ -44,7 +36,7 @@ export class ProfilComponent implements OnInit {
    Matchlists = <Matchlist> {};
    Match = <Match> {};
    timeLeft: number = 60;
-   
+   version: String = "";
    accountid :string;
    specialid :string;
 
@@ -64,7 +56,11 @@ export class ProfilComponent implements OnInit {
       let namesumm = this.route.snapshot.paramMap.get('summonername').replace(/\s/g, "");
      
       this.spinner.show();
-
+      this.baseService.Getpath()
+      
+      .subscribe(
+        (aq: version)=>{   this.version = aq.v; console.log(this.version ); }
+         );
 
 
       

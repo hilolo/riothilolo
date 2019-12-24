@@ -1,5 +1,4 @@
 
-
 	<div id="wrapper">	
 		<section class="hero cover" style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);" >
 			<div class="hero-bg-primary2"></div>
@@ -7,19 +6,19 @@
 				<div class="page-header">
 						
 					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>
-					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/n3crovision </a>
+					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/D_BLACKMAMBA </a>
 					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > VIP	</a>
 
 					<div class="profile-avatar">
 						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="HILOLO">
 							<a >
 									
-							<img onError="this.src='http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/1.png'" src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/{{account.profileIconId}}.png" >
+							<img onError="this.src='http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/1.png'" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/profileicon/{{account.profileIconId}}.png" >
 							
 							</a>
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 		</section>
 		<section   class="profile-nav height-20  	" style="background-color: #fafafa;" >
@@ -149,11 +148,11 @@
 												
 										
 
-	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
+	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
 	</a>
 	
-	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell1Id  | summonerSpell   }}.png" alt="Flash">
-	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell2Id  | summonerSpell   }}.png" alt="gag">
+	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell1Id  | summonerSpell   }}.png" alt="Flash">
+	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell2Id  | summonerSpell   }}.png" alt="gag">
 	
 
 														</div>
@@ -212,7 +211,7 @@
 					
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item0 != '0'   ; then item0 else item0else"></div>
 					<ng-template #item0>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item0       }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item0       }}	.png">
 					</ng-template>
 					<ng-template #item0else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -221,7 +220,7 @@
 
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item1 != '0'   ; then item1 else item1else"></div>
 					<ng-template #item1>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item1       }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item1       }}	.png">
 					</ng-template>
 					<ng-template #item1else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -232,7 +231,7 @@
 					
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item2 != '0'   ; then item2 else item2else"></div>
 					<ng-template #item2>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item2      }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item2      }}	.png">
 					</ng-template>
 					<ng-template #item2else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -241,7 +240,7 @@
 
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item6 != '0'   ; then item6 else item6else"></div>
 					<ng-template #item6>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item6      }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item6      }}	.png">
 					</ng-template>
 					<ng-template #item6else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -250,7 +249,7 @@
 
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item3 != '0'   ; then item3 else item3else"></div>
 					<ng-template #item3>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item3     }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item3     }}	.png">
 					</ng-template>
 					<ng-template #item3else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -261,7 +260,7 @@
 					
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item4 != '0'   ; then item4 else item4else"></div>
 					<ng-template #item4>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item4      }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item4      }}	.png">
 					</ng-template>
 					<ng-template #item4else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -270,7 +269,7 @@
 
 					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item5 != '0'   ; then item5 else item5else"></div>
 					<ng-template #item5>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item5      }}	.png">
+							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item5      }}	.png">
 					</ng-template>
 					<ng-template #item5else>
 							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
@@ -289,7 +288,7 @@
 	<table class="table-auto match-summoners-table">
 	<tbody><tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[0].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[0].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[0].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[0].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -302,7 +301,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[1].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[1].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[1].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[1].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -315,7 +314,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[2].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[2].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[2].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[2].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -328,7 +327,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[3].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[3].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[3].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[3].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -340,7 +339,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[4].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[4].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[4].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[4].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -358,7 +357,7 @@
 	<table class="table-auto match-summoners-table">
 	<tbody><tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[5].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[5].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[5].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[5].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -371,7 +370,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[6].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[6].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[6].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[6].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -385,7 +384,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[7].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[7].championId | championname }}"></a>
+	<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[7].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[7].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -397,7 +396,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[8].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[8].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[8].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[8].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -409,7 +408,7 @@
 	</tr>
 	<tr>
 	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/{{  arg.Matchinfo.participants[9].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[9].championId | championname }}"></a>
+	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[9].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[9].championId | championname }}"></a>
 	</td>
 	<td>
 	<div>
@@ -456,8 +455,8 @@
 <img height="100" width="100" class="img-fluid" src="https://opgg-static.akamaized.net/images/lol/champion/Thresh.png" alt="Aatrox">
 </a>
 
-<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/SummonerFlash.png" alt="Flash">
-<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/SummonerTeleport.png" alt="">
+<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/SummonerFlash.png" alt="Flash">
+<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/SummonerTeleport.png" alt="">
 
 
 
@@ -490,21 +489,21 @@ Top	| Duo	</span>
 
 													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://lolprofile.net/web/img/item-1.png">
 
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
 
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
 
 
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
 
 
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
 
 
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/3071.png">
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
+
+
+													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
 												</div>
 
 												<div class="match-con5">
@@ -514,7 +513,7 @@ Top	| Duo	</span>
 <table class="table-auto match-summoners-table">
 <tbody><tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/XinZhao.png" alt="Xin Zhao"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/XinZhao.png" alt="Xin Zhao"></a>
 </td>
 <td>
 <div>
@@ -525,7 +524,7 @@ JustCh1llin	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Jinx.png" alt="Jinx"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jinx.png" alt="Jinx"></a>
 </td>
 <td>
 <div>
@@ -536,7 +535,7 @@ wartom83	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Yasuo.png" alt="Yasuo"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Yasuo.png" alt="Yasuo"></a>
 </td>
 <td>
 <div>
@@ -547,7 +546,7 @@ Skywalker Main	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Bard.png" alt="Bard"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Bard.png" alt="Bard"></a>
 </td>
 <td>
 <div>
@@ -558,7 +557,7 @@ pinono77	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Jayce.png" alt="Jayce"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jayce.png" alt="Jayce"></a>
 </td>
 <td>
 <div>
@@ -574,7 +573,7 @@ Stewroids66	</a>
 <table class="table-auto match-summoners-table">
 <tbody><tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/XinZhao.png" alt="Xin Zhao"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/XinZhao.png" alt="Xin Zhao"></a>
 </td>
 <td>
 <div>
@@ -585,7 +584,7 @@ JustCh1llin	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Jinx.png" alt="Jinx"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jinx.png" alt="Jinx"></a>
 </td>
 <td>
 <div>
@@ -596,7 +595,7 @@ wartom83	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Yasuo.png" alt="Yasuo"></a>
+<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Yasuo.png" alt="Yasuo"></a>
 </td>
 <td>
 <div>
@@ -607,7 +606,7 @@ Skywalker Main	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Bard.png" alt="Bard"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Bard.png" alt="Bard"></a>
 </td>
 <td>
 <div>
@@ -618,7 +617,7 @@ pinono77	</a>
 </tr>
 <tr>
 <td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/Jayce.png" alt="Jayce"></a>
+<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jayce.png" alt="Jayce"></a>
 </td>
 <td>
 <div>

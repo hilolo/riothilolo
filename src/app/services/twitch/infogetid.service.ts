@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import  * as twitchkey from 'src/app/services/twitch/twitch-key';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import  {Twitchuser } from 'src/app/models/twitchuser';
-import  {Stream } from 'src/app/models/twitchuser';
+import  {Info } from 'src/app/models/twitchuser';
 
 
 @Injectable({
@@ -41,7 +41,7 @@ export class InfogetidService {
 
   let options = { headers: headers };
 
-    return this.http.get<Stream>("https://api.twitch.tv/kraken/streams/"+val, options);
+    return this.http.get<Info>("https://api.twitch.tv/kraken/streams/"+val, options);
        
   
 

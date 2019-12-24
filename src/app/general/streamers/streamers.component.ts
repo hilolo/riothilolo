@@ -15,12 +15,18 @@ export class StreamersComponent implements OnInit {
   userstv :Twitchuser;
   qr ='';
   ngOnInit() {
+    this.getAllData();
+
   
+   
 
 
-  
+  }
+
+  async getAllData() {
+ 
     
-    let datas: string[] = ['dreamerzlel', 'kasaikogaming','loltyler1']; 
+    let datas: string[] = ['mimiczxc','mr_kaplan','busioc','d_blackmamba','kasaikogaming','loltyler1']; 
     
     datas.forEach((item, index, arr) => {
       if(!arr[index + 1])  this.qr += item;
@@ -31,21 +37,43 @@ export class StreamersComponent implements OnInit {
  
     this.infogetidService.Getinfoid(this.qr).subscribe( ar => {
         this.userstv=ar;
-      
-       
 
-        this.userstv.users.forEach(at =>  {
-        this.infogetidService.Streaminfo(at._id).subscribe( aq => {
-          
-    
-          at.stream=aq;
+      //waste of energie and time im stupid  
+          this.userstv.users.forEach(ar => {
+          ar.live="0";
         }
-        );
-      });
-   
-      console.log( this.userstv);
-     
 
+        )
+      
+        
+        
+
+        this.userstv.users.forEach((at,index) =>  {
+         this.infogetidService.Streaminfo(at._id).subscribe( aq => {
+         
+          at.info=aq;
+        if(aq.stream) at.live="10"; else  at.live="0";
+       
+          this.userstv.users = this.userstv.users.sort((b,a) => a.live.localeCompare(b.live));
+       
+      
+      
+          
+
+         
+        }
+        
+        );
+       
+      }
+      
+      );
+   
+
+      
+      console.log( this.userstv);
+    
+      
 
     }, err => 
     {
@@ -55,6 +83,10 @@ export class StreamersComponent implements OnInit {
     
     
     );
+
+
+    console.log('finish');
+   
   }
 
 }
