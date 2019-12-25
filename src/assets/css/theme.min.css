@@ -757,7 +757,7 @@ section#video{height:760px;background-color:#0c0d0e}
 .widget-game .label.circle{border-radius:50%;width:46px;height:45px;line-height:45px;padding:0;text-align:center;box-shadow:0 2px 3px 0 rgba(0,0,0,0.08);-webkit-box-shadow:0 2px 3px 0 rgba(0,0,0,0.08);font-size:14px;font-weight:bold}
 .widget-game .chart-align{text-align:center;width:100%;margin-bottom:20px}
 .widget-game .chart .percent{color:#FFF}
-.widget-game .label{font-size:10px;margin-top:10px}
+.widget-game .label{font-size:10px; }
 .widget-game .title{color:#FFF;border:0;padding-left:0;margin-bottom:30px;font-size:22px;line-height:22px}
 .widget-game .overlay{position:relative;border-radius:3px;padding:30px;background:rgba(0,0,0,0.7);height:100%}
 .widget-game .description{color:#FFF;padding:0;font-size:13px;line-height:22px;margin-top:30px}

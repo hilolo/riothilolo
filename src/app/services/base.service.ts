@@ -1,35 +1,27 @@
-import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
-import  {Account } from 'src/app/models/accounts';
-import  {version } from 'src/app/models/version';
-import  * as ritoapi from 'src/app/services/api-key';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { Account } from "src/app/models/accounts";
+import { version } from "src/app/models/version";
+import * as ritoapi from "src/app/services/api-key";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class BaseService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient){}
-  
-  
-    Getinfo(user : string)  {
+  Getinfo(user: string) {
+    return this.http.get<Account>(
+      "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +
+        user +
+        "?api_key=" +
+        ritoapi.key
+    );
+  }
 
-     
-
-       return this.http.get<Account>("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ user+ "?api_key="+ ritoapi.key
-       
-    ); }
-
-    Getpath(){
-
-
-      return this.http.get<version>("https://ddragon.leagueoflegends.com/realms/na.json");
-       
-      
-
-    }
-
-  
-
-
+  Getpath() {
+    return this.http.get<version>(
+      "https://ddragon.leagueoflegends.com/realms/na.json"
+    );
+  }
 }
