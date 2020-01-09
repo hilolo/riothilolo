@@ -1,30 +1,60 @@
+<div id="wrapper">
+  <section
+    class="hero cover"
+    style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);"
+  >
+    <div class="hero-bg-primary2"></div>
+    <div class="container relative">
+      <div class="page-header">
+        <div class="page-title">
+          {{ account.name }}
+          <span class="badge badge-cr">{{ account.summonerLevel }}</span>
+        </div>
+        <a
+          href="#"
+          class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title"
+          ><img
+            src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png"
+            width="30px"
+          />
+          twitch.tv/n3crovision
+        </a>
+        <a
+          href="#"
+          class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title"
+          ><img
+            src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png"
+            width="30px"
+          />
+          VIP
+        </a>
 
-	<div id="wrapper">	
-		<section class="hero cover" style="background-image: url(https://i.ytimg.com/vi/YEMT5CVbX58/hqdefault.jpg);" >
-			<div class="hero-bg-primary2"></div>
-			<div class="container relative">
-				<div class="page-header">
-						
-					<div class="page-title"> {{account.name}} <span class="badge badge-cr">{{account.summonerLevel}}</span></div>
-					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/16-128.png" width="30px" >  twitch.tv/D_BLACKMAMBA </a>
-					<a href="#" class="btn btn-inverse btn-sm btn-rounded limen ba3ad TierRank post-title" ><img src="https://gamepedia.cursecdn.com/paladins_gamepedia/2/22/VIP_logo.png" width="30px" > VIP	</a>
+        <div class="profile-avatar">
+          <div
+            class="thumbnail"
+            data-toggle="tooltip"
+            title=""
+            data-original-title="HILOLO"
+          >
+            <a>
+              <img
+                onError="this.src='http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/1.png'"
+                src="http://ddragon.leagueoflegends.com/cdn/{{
+                  version
+                }}/img/profileicon/{{ account.profileIconId }}.png"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="profile-nav height-20  	"
+    style="background-color: #fafafa;"
+  ></section>
 
-					<div class="profile-avatar">
-						<div class="thumbnail" data-toggle="tooltip" title="" data-original-title="HILOLO">
-							<a >
-									
-							<img onError="this.src='http://ddragon.leagueoflegends.com/cdn/9.23.1/img/profileicon/1.png'" src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/profileicon/{{account.profileIconId}}.png" >
-							
-							</a>
-						</div>
-					</div>
-				</div> 
-			</div>
-		</section>
-		<section   class="profile-nav height-20  	" style="background-color: #fafafa;" >
-		</section>
-		 
-	<!--
+  <!--
 		<div *ngFor="let aq of Matchlists.matches" >
 			<pre>{{aq.platformId | json}}</pre>
 
@@ -33,644 +63,101 @@
 	
 		<pre>Matchinfodata{{Matchlists.matches  | json   }}</pre>
 			-->
-	
 
-		
-		
-		<section class="bg-grey-50 padding-top-40 padding-top-sm-30" style="padding: px;/* margin-top: 20px; */">
-			<div class="container">
-				<div class="row ">
-					<div class="col-md-4 col-sm-4 hidden-xs padding-top-40 padding-top-sm-30">
-						
-						<div class="widget" *ngFor="let league of leagues" >
-							<div class="panel panel-default">
-								
-								<div class="panel-body">
-									<div class="row tblt row-eq-height">
-									<div class="col-md-5 col-sm-4  ">
-											<img src="/assets/img/division/{{league.tier }}.png" width="105px" class="Image   margin-top-25s">
-										</div>
-											<div class="col-md-7 col-sm-8   Tierinfo   ">
-											<div class="center-vv">
-											
-							<h6  class="Tiermode"  >   {{league.queueType == 'RANKED_SOLO_5x5' ? '	
-									Classé Solo' : 'Flex 5:5 Rank' }}
-  												</h6>
-												<div class="post-title TierRank"> {{league.tier }}  {{league.rank }}</div>
-												
-												<div class="TierInfo">
-			<span class="LeaguePoints">
-					{{league.leaguePoints }}  LP
-					
-			</span>
-							/
-						<span class="WinLose">
-															<span class="wins">{{league.wins}}V </span>
-						<span class="losses">{{league.losses}}D</span>
-						<br>
-						
-						<span class=" {{(league.wins /(league.wins+league.losses)) >= 0.5 ? '	
-						winratio' : 'text-danger'}} " >Win Ratio {{(league.wins /(league.wins+league.losses))*100| number: '1.0-0' }}%</span>
-												</span>
-								
-		</div>
+  <section
+    class="bg-grey-50 padding-top-40 padding-top-sm-30"
+    style="padding: px;/* margin-top: 20px; */"
+  >
+    <div class="container">
+      <div class="row ">
+        <div
+          class="col-md-4 col-sm-4 hidden-xs padding-top-40 padding-top-sm-30"
+        >
+          <div class="widget" *ngFor="let league of leagues">
 
+            <app-divisions [league]="league"></app-divisions>
+          </div>
 
+          <div class="widget widget-friends">
+            <div class="panel panel-default">
+              <div class="panel-heading">Friends (34)</div>
+              <div class="panel-body">
+                <ul>
+                  <li>
+                    <a
+                      href="#"
+                      data-toggle="tooltip"
+                      title=""
+                      data-original-title="Orb"
+                      ><img src="" alt=""
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-toggle="tooltip"
+                      title=""
+                      data-original-title="Patrick"
+                      ><img src="" alt=""
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-toggle="tooltip"
+                      title=""
+                      data-original-title="John"
+                      ><img src="" alt=""
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-toggle="tooltip"
+                      title=""
+                      data-original-title="Michael"
+                      ><img src="" alt=""
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8">
+          <div class="matches">
+            <div *ngFor="let matches of Matchlists.matches">
+             
+              <app-matches 
+                [matches]="matches" 
+                [specialid]="specialid"
+                 [version]="version"
+                
+                >
+              </app-matches>
+            </div>
+
+            
+          </div>
+
+          <ngx-spinner
+            bdColor="rgba(51,51,51,0.4)"
+            size="medium"
+            color="#fff"
+            type="ball-scale-multiple"
+          >
+            <p style="font-size: 20px; color: white">Chargment...</p>
+          </ngx-spinner>
+
+          <a
+            style="cursor: pointer;"
+            (click)="morematches()"
+            class="s-rg-showmore"
+            >Load More Matches...</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-										</div>
-
-										</div>
-
-									
-								
-								</div>
-							</div>
-						</div>
-
-						
-						
-						
-						<div class="widget widget-friends">
-							<div class="panel panel-default">
-								<div class="panel-heading">Friends (34)</div>
-								<div class="panel-body">
-									<ul>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Orb"><img src="" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Patrick"><img src="" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="John"><img src="" alt=""></a></li>
-										<li><a href="#" data-toggle="tooltip" title="" data-original-title="Michael"><img src="" alt=""></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						
-					</div>
-					
-					
-					<div class="col-md-8 col-sm-8">
-					
-						
-							<div class="matches"> 
-
-									<div  *ngFor="let arg of Matchlists.matches" >
-
-									<div  *ngIf="arg.Matchinfo ">
-											<div *ngFor="let part of arg.Matchinfo.participantIdentities">	
-
-											<div *ngIf="part.player.summonerId == specialid">
-							<div class="match1"  style="margin-top: 40px;" >
-										<div class="s-m-t  cf {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
-													victory-bg1' : 'defeat-bg1' }}  " >
-												<span class="victory-text1"> {{arg.Matchinfo.queueId | quenne}}	</span>
-												<span class="sep victory-text2"> - </span>
-												<span class="victory-text1 "> {{arg.timestamp  | date: 'dd MMM'}} </span>
-												<span class="sep victory-text2"> - </span>
-												<span class="time victory-text3"> 	{{arg.Matchinfo.gameDuration/60  | number: '1.0-0'}}  mins</span>
-												<div class="result victory-text1">  {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
-														VICTORY' : 'DEFEAT' }}</div>
-												</div>
-
-										
-												
-	
-								
-
-									
-												<div class="s-m-m  {{arg.Matchinfo.participants[part.participantId-1].stats.win   ? '	
-												victory-bg2' : 'defeat-bg2' }} ">
-													<div class="match-con1">
-
-															
-																		
-									
-										<a >
-												
-										
-
-	<img  height="100" width="100" class="img-fluid rounded"  src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{arg.Matchinfo.participants[part.participantId-1].championId | championname }}.png" alt="Ryze">
-	</a>
-	
-	<img width="37" height="37" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell1Id  | summonerSpell   }}.png" alt="Flash">
-	<img width="37" height="37" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/	{{arg.Matchinfo.participants[part.participantId-1].spell2Id  | summonerSpell   }}.png" alt="gag">
-	
-
-														</div>
-														
-													<div class="match-con2">
-
-													
-
-					
-
-							
-									
-									
-	
-														<span class="kda victory-text1">
-	<span class="num">	{{arg.Matchinfo.participants[part.participantId-1].stats.kills       }}</span> <span class="victory-text2"> / </span>
-	<span class="num" style="color:#A93D3D;"> 	{{arg.Matchinfo.participants[part.participantId-1].stats.deaths       }}  </span> <span class="victory-text2"> / </span>
-	<span class="num">{{arg.Matchinfo.participants[part.participantId-1].stats.assists       }}</span>
-	</span>
-	
-
-	<ng-container
-  *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.deaths      == 0; then loggedIn; else loggedOut">
-</ng-container>
-<ng-template #loggedIn>
-		<span class="kda3 victory-text2 ">Perfect KDA</span>
-
-</ng-template>
-<ng-template #loggedOut>
-		<span class="kda2 victory-text2">{{(arg.Matchinfo.participants[part.participantId-1].stats.kills +  arg.Matchinfo.participants[part.participantId-1].stats.assists) / arg.Matchinfo.participants[part.participantId-1].stats.deaths |  number : '1.2-2'    }} KDA</span>
-</ng-template>
-
-	
-	
-
-	
-	
-	
-														</div>
-												
-													<div class="match-con3">
-														
-	
-	<span class="pos victory-text1">
-			{{ (arg.lane | titlecase) == 'None'  ? '	
-			Fill' : (arg.lane | titlecase) }}  
-	 	</span>
-	<span class="lvl victory-text2">LvL 	{{arg.Matchinfo.participants[part.participantId-1].stats.champLevel  }}	 / {{arg.Matchinfo.participants[part.participantId-1].stats.goldEarned  | number: '2.'  }} G</span>
-	<span class="cs victory-text2"><span >{{arg.Matchinfo.participants[part.participantId-1].stats.totalMinionsKilled  }}	 CS</span> / <span class="kp">D {{arg.Matchinfo.participants[part.participantId-1].stats.totalDamageDealt | shortnumber  }} </span></span>
-	<!-- <span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span> -->
-	
-	
-	
-														</div>
-			<div class="match-con4">
-					
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item0 != '0'   ; then item0 else item0else"></div>
-					<ng-template #item0>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item0       }}	.png">
-					</ng-template>
-					<ng-template #item0else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item1 != '0'   ; then item1 else item1else"></div>
-					<ng-template #item1>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item1       }}	.png">
-					</ng-template>
-					<ng-template #item1else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-
-					
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item2 != '0'   ; then item2 else item2else"></div>
-					<ng-template #item2>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item2      }}	.png">
-					</ng-template>
-					<ng-template #item2else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item6 != '0'   ; then item6 else item6else"></div>
-					<ng-template #item6>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item6      }}	.png">
-					</ng-template>
-					<ng-template #item6else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item3 != '0'   ; then item3 else item3else"></div>
-					<ng-template #item3>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item3     }}	.png">
-					</ng-template>
-					<ng-template #item3else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-
-					
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item4 != '0'   ; then item4 else item4else"></div>
-					<ng-template #item4>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item4      }}	.png">
-					</ng-template>
-					<ng-template #item4else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-					<div *ngIf="arg.Matchinfo.participants[part.participantId-1].stats.item5 != '0'   ; then item5 else item5else"></div>
-					<ng-template #item5>
-							<img width="30" height="30" class="item0 " alt="item0" onError="this.src='https://lolprofile.net/web/img/item-1.png'" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/	{{arg.Matchinfo.participants[part.participantId-1].stats.item5      }}	.png">
-					</ng-template>
-					<ng-template #item5else>
-							<img width="30" height="30" class="item0 " alt="iteem0" src="https://lolprofile.net/web/img/item-1.png">						
-					</ng-template>
-
-
-					
-					
-			
-			</div>
-	
-													<div class="match-con5">
-	
-	
-														<div >
-	<table class="table-auto match-summoners-table">
-	<tbody><tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[0].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[0].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip "  data-placement="left" title="Tooltip on left"  title="{{ arg.Matchinfo.participantIdentities[0].player.summonerName}}"  >
-		
-			{{ arg.Matchinfo.participantIdentities[0].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[0].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[0].player.summonerName ) }}
-				</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[1].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[1].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip"  title="{{ arg.Matchinfo.participantIdentities[1].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[1].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[1].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[1].player.summonerName ) }}
-
-				</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[2].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[2].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 "  data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[3].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[2].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[2].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[2].player.summonerName ) }}
-
-	</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[3].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[3].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[4].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[3].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[3].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[3].player.summonerName ) }}
-				</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[4].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[4].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[5].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[4].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[4].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[4].player.summonerName ) }}
-	
-	</a>
-	</div>
-	</td>
-	</tr>
-	</tbody></table>
-	</div>
-	
-	<div>
-	<table class="table-auto match-summoners-table">
-	<tbody><tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[5].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[5].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4" data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[5].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[5].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[5].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[5].player.summonerName ) }}
-	
-	</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[6].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[6].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[6].player.summonerName}}" >
-			{{ arg.Matchinfo.participantIdentities[6].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[6].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[6].player.summonerName ) }}
-
-
-	</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[7].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[7].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[7].player.summonerName}}"  >
-			{{ arg.Matchinfo.participantIdentities[7].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[7].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[7].player.summonerName ) }}
-	</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[8].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[8].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[8].player.summonerName}}" >
-			{{ arg.Matchinfo.participantIdentities[8].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[8].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[8].player.summonerName ) }}
-		</a>
-	</div>
-	</td>
-	</tr>
-	<tr>
-	<td>
-	<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{  arg.Matchinfo.participants[9].championId | championname }}.png" alt="{{  arg.Matchinfo.participants[9].championId | championname }}"></a>
-	</td>
-	<td>
-	<div>
-	<a class="victory-text4 " data-toggle="tooltip" title="{{ arg.Matchinfo.participantIdentities[9].player.summonerName}}"  >
-
-			{{ arg.Matchinfo.participantIdentities[9].player.summonerName.length > 10   ?   (arg.Matchinfo.participantIdentities[9].player.summonerName | slice:0:10) + '...'    : (arg.Matchinfo.participantIdentities[9].player.summonerName ) }}	</a>
-	</div>
-	</td>
-	</tr>
-	</tbody></table>
-	</div>
-														</div>
-													
-												
-												</div>
-	
-										
-									</div>
-
-								</div>
-							</div>
-							</div>
-			</div>
-
-
-									
-									<div class="match1" style="margin-top:30px;">
-											
-												
-	
-											<div class="s-m-t defeat-bg1 cf ">
-											<span class="victory-text1">Ranked 5v5</span>
-											<span class="sep victory-text2"> - </span>
-											<span class="victory-text1 ">1 day ago</span>
-											<span class="sep victory-text2"> - </span>
-											<span class="time victory-text3"> 221mins</span>
-											<div class="result victory-text1">DEFEAT</div>
-											</div>
-
-										
-											<div class="s-m-m defeat-bg2 ">
-												<div class="match-con1">
-													<a >
-<img height="100" width="100" class="img-fluid" src="https://opgg-static.akamaized.net/images/lol/champion/Thresh.png" alt="Aatrox">
-</a>
-
-<img width="34" height="34" class="s1 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/SummonerFlash.png" alt="Flash">
-<img width="34" height="34" class="s2 " src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/spell/SummonerTeleport.png" alt="">
-
-
-
-													</div>
-												<div class="match-con2">
-
-													<span class="kda victory-text1">
-<span class="num">0</span> <span class="victory-text2"> / </span>
-<span class="num" style="color:#A93D3D;">4</span> <span class="victory-text2"> / </span>
-<span class="num">8</span>
-</span>
-
-<span class="kda2 victory-text2">2.00 KDA</span>
-
-
-													</div>
-												<div class="match-con3">
-
-<span class="pos victory-text1">
-Top	| Duo	</span>
-<span class="lvl victory-text2">Lv 12 / 8,181G</span>
-<span class="cs victory-text2"><span >157 CS</span> / <span class="kp">KP23%</span></span>
-<span class="defeat-bg1 kills defeat-text4">Double Kill <small>(1)</small></span>
-
-
-
-													</div>
-												<div class="match-con4">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://lolprofile.net/web/img/item-1.png">
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-
-
-													<img width="30" height="30" class="item0 " alt="Black Cleaver" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/3071.png">
-												</div>
-
-												<div class="match-con5">
-
-
-													<div >
-<table class="table-auto match-summoners-table">
-<tbody><tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/XinZhao.png" alt="Xin Zhao"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-JustCh1llin	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jinx.png" alt="Jinx"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-wartom83	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Yasuo.png" alt="Yasuo"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 ">
-Skywalker Main	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Bard.png" alt="Bard"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-pinono77	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jayce.png" alt="Jayce"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-Stewroids66	</a>
-</div>
-</td>
-</tr>
-</tbody></table>
-</div>
-
-<div>
-<table class="table-auto match-summoners-table">
-<tbody><tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/XinZhao.png" alt="Xin Zhao"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-JustCh1llin	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jinx.png" alt="Jinx"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-wartom83	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14" src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Yasuo.png" alt="Yasuo"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-Skywalker Main	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Bard.png" alt="Bard"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-pinono77	</a>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<a ><img width="14" height="14"  src="https://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/Jayce.png" alt="Jayce"></a>
-</td>
-<td>
-<div>
-<a class="victory-text4 " >
-Stewroids66	</a>
-</div>
-</td>
-</tr>
-</tbody></table>
-</div>
-													</div>
-												
-											
-											</div>
-
-									
-								</div>
-
-
-									
-								
-	
-							</div>
-
-							<ngx-spinner bdColor="rgba(51,51,51,0.4)"
-							size="medium"
-							color="#fff"
-							type="ball-scale-multiple"
-						  >
-								
-						  <p style="font-size: 20px; color: white">Chargment...</p>
-							</ngx-spinner>
-							
-							<a style="cursor: pointer;"   (click)="morematches()" class="s-rg-showmore">Load More Matches...</a>
-	
-						
-					
-						
-						
-						
-						
-
-					</div>
-
-					
-
-
-				
-
-				</div>
-			</div>
-		</section>
-	</div>
-
-
-

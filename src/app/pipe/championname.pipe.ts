@@ -8,7 +8,7 @@ import * as lolChamps from 'lol-champs';
 export class ChampionnamePipe implements PipeTransform {
 
   transform(value: number): String {
-    return lolChamps.getName(value);;
+    return lolChamps.getName(value);
   }
 
 }

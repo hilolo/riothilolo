@@ -21,6 +21,13 @@ import { ShortnumberPipe } from './pipe/shortnumber.pipe';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { QuennePipe } from './pipe/quenne.pipe';
 import { StreamersComponent } from './general/streamers/streamers.component';
+import { DivisionsComponent } from './general/profil/divisions/divisions.component';
+import { MatchesComponent } from './general/profil/matches/matches.component';
+import { ChampionsComponent } from './general/champions/champions.component';
+import { BestPerchampComponent } from './general/champions/best-perchamp/best-perchamp.component';
+import { MmrdivisionPipe } from './pipe/mmrdivision.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +42,17 @@ import { StreamersComponent } from './general/streamers/streamers.component';
     ShortnumberPipe,
     QuennePipe,
     StreamersComponent,
+    DivisionsComponent,
+    MatchesComponent,
+    ChampionsComponent,
+    BestPerchampComponent,
+    MmrdivisionPipe,
+    
+   
+  
+
+
+    
    
 
  

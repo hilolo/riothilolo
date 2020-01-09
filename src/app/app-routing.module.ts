@@ -6,6 +6,9 @@ import { MainComponent } from './main/main.component';
 import { ProfilComponent } from './general/profil/profil.component';
 import { StreamersComponent } from './general/streamers/streamers.component';
 import { ErrorComponent } from './general/error/error.component';
+import { ChampionsComponent } from './general/champions/champions.component';
+import { BestPerchampComponent } from './general/champions/best-perchamp/best-perchamp.component';
+
 
 
 const routes: Routes = [
@@ -13,6 +16,8 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   {path: 'profil/:summonername', component: ProfilComponent },
   {path: 'Streamers', component: StreamersComponent },
+  {path: 'Champions', component: ChampionsComponent },
+  {path: 'Champion/:champ', component: BestPerchampComponent },
   { path: '**', component: ErrorComponent }
  
 ];

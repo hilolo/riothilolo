@@ -1,0 +1,56 @@
+<div id="wrapper">	
+    <section class="hero height-200 hero-game" style="background-image: url(img/cover/cover-game.jpg);">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">Champions</div>
+            </div>
+        </div>
+    </section>
+    
+   
+    
+    <section class="bg-grey-50 padding-top-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 padding-30">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="headline">
+                                <h4>Champions</h4>
+                                <div class="btn-group pull-right">
+                                    <div class="checkbox pull-left margin-top-10"   >
+                                        <input type="checkbox"  (click)="Mostchamps($event)"   [(ngModel)]="theCheckbox"   id="checkbox1"> 
+                                        <label for="checkbox1">Champions populaires</label>
+                                    </div>
+                                    <input type="text"   (keyup)="Searchchamps()" [(ngModel)]="searchtext"   class="form-control" placeholder="Champions..." required="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 margin-top-10">
+                            <div class="row">
+                                <div *ngFor="let champion of Champions "> 
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+									<div class="post-thumbnail">
+                                        <a  routerLink="/Champion/{{champion}}"><img src="http://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/{{champion}}.png" alt=""></a>
+                                        <h4 class="widget-list-title margin-top-5 font-size-13 font-s " style="text-align: center;"><a routerLink="/Champion/{{champion}}" >{{champion}}</a></h4>
+                                    </div>
+                                </div>
+                                </div>
+                               
+                                
+							
+							</div>
+                        </div>
+                    </div>
+             
+                    
+                
+                </div>
+                
+              
+            </div>
+        </div>
+    </section>
+</div>

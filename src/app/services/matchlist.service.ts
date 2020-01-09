@@ -21,7 +21,12 @@ export class MatchlistService {
 
 
 
+   Getmatchlistperq(Accountid : string, star : number,end : number, queneid : number)  {
 
+   
+    return this.http.get<Matchlist>("https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/"+ Accountid +"?endIndex="+  end +"&queue="+  queneid +"&beginIndex="+ star +"&api_key="+ ritoapi.key
+    
+ ); }
 
 
 

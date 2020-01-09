@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row tblt row-eq-height">
+        <div class="col-md-5 col-sm-4  ">
+          <img
+            src="/assets/img/division/{{ league.tier }}.png"
+            width="105px"
+            class="Image   margin-top-25s"
+          />
+        </div>
+        <div class="col-md-7 col-sm-8   Tierinfo   ">
+          <div class="center-vv">
+            <h6 class="Tiermode">
+              {{
+                league.queueType == "RANKED_SOLO_5x5"
+                  ? "	
+                          Classé Solo"
+                  : "Flex 5:5 Rank"
+              }}
+            </h6>
+            <div class="post-title TierRank">
+              {{ league.tier }} {{ league.rank }}
+            </div>
+
+            <div class="TierInfo">
+              <span class="LeaguePoints">
+                {{ league.leaguePoints }} LP
+              </span>
+              /
+              <span class="WinLose">
+                <span class="wins">{{ league.wins }}V </span>
+                <span class="losses">{{ league.losses }}D</span>
+                <br />
+
+                <span
+                  class=" {{
+                    league.wins / (league.wins + league.losses) >= 0.5
+                      ? '	
+              winratio'
+                      : 'text-danger'
+                  }} "
+                  >Win Ratio
+                  {{
+                    (league.wins / (league.wins + league.losses)) *
+                      100 | number: "1.0-0"
+                  }}%</span
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

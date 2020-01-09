@@ -33,13 +33,13 @@ export class StreamersComponent implements OnInit {
 
   async getAllData() {
     let datas: string[] = [
-      "mimiczxc",
+      "sniper_nolove",
       "mr_kaplan",
-      "busioc",
+      "vodkafunky1",
       "d_blackmamba",
-      "kasaikogaming",
+      "n3crovision",
       "loltyler1",
-      "cmgriffing"
+      "KALAIII"
     ];
 
     datas.forEach((item, index, arr) => {
@@ -107,6 +107,7 @@ export class StreamersComponent implements OnInit {
   Sortinfo() {
     this.userstv.users = this.userstv.users.sort((b, a) =>
       a.live.localeCompare(b.live)
+    
     );
   }
 }

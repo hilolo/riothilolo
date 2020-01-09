@@ -17,6 +17,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./profil.component.html",
   styleUrls: ["./profil.component.css"]
 })
+
 export class ProfilComponent implements OnInit {
   account = <Account>{};
   leagues = <League[]>[];
@@ -37,12 +38,14 @@ export class ProfilComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    let namesumm = this.route.snapshot.paramMap
-      .get("summonername")
-      .replace(/\s/g, "");
+  indexd = 0;
+  indexfin = 5;
 
-    this.spinner.show();
+  greet(text: string): string {
+    return text.replace(/\s/g, "");
+  }
+
+    Getvetsion() {
     this.baseService
       .Getpath()
 
@@ -50,88 +53,77 @@ export class ProfilComponent implements OnInit {
         this.version = aq.v;
         console.log(this.version);
       });
-
-    this.baseService.Getinfo(namesumm).subscribe(
-      (data: Account) => {
-        console.log(data);
-        this.account = data;
-        this.accountid = data.accountId;
-        this.specialid = data.id;
-        this.leagueService
-          .Getleaugue(data.id)
-          .subscribe((leauguedata: League[]) => {
-            this.leagues = leauguedata;
-            this.leagues = this.leagues.filter(
-              item =>
-                item.queueType !== "RANKED_TFT" &&
-                item.queueType !== "RANKED_FLEX_TT"
-            );
-
-            this.leagues = this.leagues.sort((b, a) =>
-              a.queueType.localeCompare(b.queueType)
-            );
-
-            //    console.log("account id " + JSON.stringify(this.leagues) );
-          });
-
-        this.matchlistService
-          .Getmatchlist(this.accountid, 0, 5)
-          .subscribe((Matchlistdata: Matchlist) => {
-            console.log(Matchlistdata);
-
-            this.Matchlists = Matchlistdata;
-
-            this.Matchlists.matches.forEach(va => {
-              this.matchService
-                .GetMatch(va.gameId)
-                .subscribe((Matchinfodata: Match) => {
-                  va.Matchinfo = Matchinfodata;
-                });
-            });
-
-            this.spinner.hide();
-          });
-
-        setTimeout(() => {
-          /** spinner ends after 5 seconds */
-          this.spinner.hide();
-        }, 5000);
-
-        //this.Matchinfo(4295648398);
-      },
-      err => {
-        if (err.status == 404) {
-          console.log("account not found");
-          this.router.navigate(["/404"]);
-        }
-        if (err.status == 403) {
-          console.log("key expired");
-        }
-      }
-    );
-
-    /*
-show data in json
-  console.log("leaugue id " + JSON.stringify(this.league) );
-  /*
-
-
-    /
-    
-    multiple matches
-    for (var k in Matchlistdata.matches) {
-          this.Matchlists.matches.push(Matchlistdata.matches[k]);
-          }*/
-
-    /*
- console.log(this.account);
- undefined cause not load yet from the api
-
-   */
   }
 
-  indexd = 0;
-  indexfin = 5;
+  GetLeaugue() {
+    this.leagueService
+      .Getleaugue(this.specialid)
+      .subscribe((leauguedata: League[]) => {
+        this.leagues = leauguedata;
+        this.leagues = this.leagues.filter(
+          item =>
+            item.queueType !== "RANKED_TFT" &&
+            item.queueType !== "RANKED_FLEX_TT"
+        );
+
+        this.leagues = this.leagues.sort((b, a) =>
+          a.queueType.localeCompare(b.queueType)
+        );
+      });
+  }
+
+  GetAccountInfo() {
+    this.baseService
+      .Getinfo(this.greet(this.route.snapshot.paramMap.get("summonername")))
+      .subscribe(
+        (data: Account) => {
+          console.log(data);
+          this.account = data;
+          this.accountid = data.accountId;
+          this.specialid = data.id;
+          this.spinner.show();
+          this.GetLeaugue();
+          this.GetMatchlist(this.accountid, 0, 5);
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 5000);
+        },
+        err => {
+          if (err.status == 404) {
+            console.log("account not found");
+            this.router.navigate(["/404"]);
+          }
+          if (err.status == 403) {
+            console.log("key expired");
+            this.router.navigate(["/404"]);
+          }
+        }
+      );
+  }
+
+  GetMatchlist(accountid, indexstrat, indexfinish) {
+    this.matchlistService
+      .Getmatchlist(accountid, indexstrat, indexfinish)
+      .subscribe((Matchlistdata: Matchlist) => {
+        console.log(Matchlistdata);
+
+        this.Matchlists = Matchlistdata;
+        this.GetMatchesInfo();
+
+        this.spinner.hide();
+      });
+  }
+
+  GetMatchesInfo() {
+    this.Matchlists.matches.forEach(va => {
+      this.matchService
+        .GetMatch(va.gameId)
+        .subscribe((Matchinfodata: Match) => {
+          va.Matchinfo = Matchinfodata;
+        });
+    });
+  }
+
   public morematches() {
     this.indexd += 5;
     this.indexfin += 5;
@@ -141,8 +133,6 @@ show data in json
       this.matchlistService
         .Getmatchlist(this.accountid, this.indexd, this.indexfin)
         .subscribe((Matchlistdata: Matchlist) => {
-          //  console.log(  Matchlistdata);
-
           Matchlistdata.matches.forEach(x => {
             this.Matchlists.matches.push(x);
           });
@@ -159,9 +149,12 @@ show data in json
         });
 
       setTimeout(() => {
-        /** spinner ends after 5 seconds */
         this.spinner.hide();
       }, 5000);
     }
+  }
+ async ngOnInit() {
+    await this.Getvetsion();
+   await this.GetAccountInfo();
   }
 }
